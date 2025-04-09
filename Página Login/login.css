@@ -25,3 +25,12 @@ h3{
     background-color: #d9d9d9;
     height: 25px;
 }
+
+.rodape{
+    background-color: #004aad;
+    height: 60px;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    bottom: 0px;
+}

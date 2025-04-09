@@ -36,3 +36,11 @@ h1{
 .iconeTrem{
     text-align: center;
 }
+
+#rodape{
+    background-color: #004aad;
+    height: 60px;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+}

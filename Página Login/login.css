@@ -1,0 +1,20 @@
+body{
+    margin: 0px;
+}
+
+
+.titulo {
+    background-color: #004aad;
+    height: 50px;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+}
+
+h3{
+    color: white; 
+    text-align: center;
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+}

@@ -25,12 +25,36 @@
 
     <p>Por favor insira suas informações para Login</p>
 
-    <div id="login">
-        <p class="login">LOGIN</p>
+
+    <div class= 'container'>
+        <form id="formLogin">
+            <div class="form-section">
+                <div class="form-group">
+                    <label for="enderecoEmail"></label>
+                    <input type="email" id="enderecoEmail" placeholder="E-mail" required>
+                </div>
+                <div class="form-group">
+                    <label for="senha"></label>
+                    <input type="password" id="senha" placeholder="Senha" required>
+                </div>
+                <div class="remember">
+                    <label for="remember"></label> 
+                    <input type="checkbox" id="remember"> <p id="lembrar">Lembre-se de mim</p>
+                    <a class="esqueciSenha">Esqueci minha senha</a>
+                    
+                </div>
+            </div>
+
+            <div class="btn">
+                <label for="Login"></label>
+                <input type="submit" id="enviar" value="LOGIN">
+            </div>
+                
+        </form>
     </div>
 
-    <footer>  
-            <div id="rodape"></div> 
+    <footer class="fixarRodape">
+        
     </footer>
     
 </body>

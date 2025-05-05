@@ -50,7 +50,7 @@ h1{
     
 
 
-p{
+.inserir{
     font-size: 15px;
     text-align: center;
     color: #a6a6a6;
@@ -172,13 +172,40 @@ p{
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 20px;    
+    gap: 20px;  
    }
 
    #bemVindo{
     text-align: center;
+    margin-bottom: 50px;
    }
 
    h4{
     font-weight: normal;
+   }
+
+   .opcoes{
+    background-color: #d9d9d9;
+    height: 450px;
+    text-align: center;
+    gap: 50px;
+    padding: 30px;
+    margin: 0px;
+ 
+   }
+
+   .opcao {
+    background-color: #004aad;
+    height: 50px;
+    width: 200px;
+    display: flex;
+    margin:  0 auto 30px auto; 
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border-radius: 20px;
+}
+
+   .nomeOpcao{
+    color: white;
    }

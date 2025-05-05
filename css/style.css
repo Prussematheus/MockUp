@@ -64,8 +64,6 @@ p{
     
 }
 
-
-
 .container {
     
     display: flex;
@@ -140,6 +138,10 @@ p{
         color: #0969DA;
     }
 
+    #relatório{
+        text-align: center;
+    }
+
     #enderecoEmail{
         width: 320px;
         height: 50px;
@@ -152,6 +154,31 @@ p{
 
 
     .btn{
-        margin-top: 100px;
+        margin-top: 60px;
+        text-align: center;
+    }
+
+    #enviar{
+        border-radius: 20px;
+        width: 100px;
     }
     
+   #tituloBemVindo{
+    background-color: #004aad;
+    height: 60px;
+    margin: 0px;
+    padding-left: 15px;
+    border: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;    
+   }
+
+   #bemVindo{
+    text-align: center;
+   }
+
+   h4{
+    font-weight: normal;
+   }

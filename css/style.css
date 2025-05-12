@@ -107,15 +107,13 @@ h1{
     }
 
     #enviar {
-        background-color: #004aad;
-        color: #fff;
-        font-size: 14px;
-        font-weight: 600;
-        border: none !important;
-        transition: all linear 160ms;
+        display: inline-block;
+        padding: 10px 20px;
+        background: #004aad;
+        color: white;
+        text-decoration: none;
+        border-radius: 4px;
         cursor: pointer;
-        margin: 0 !important;
-    
     }
 
     #remember{
@@ -156,11 +154,6 @@ h1{
     .btn{
         margin-top: 60px;
         text-align: center;
-    }
-
-    #enviar{
-        border-radius: 20px;
-        width: 100px;
     }
     
    #tituloBemVindo{
@@ -209,3 +202,89 @@ h1{
    .nomeOpcao{
     color: white;
    }
+
+   .bars{
+    background-color: transparent;
+    border: #004aad;
+   }
+
+   .notificacao{
+    background-color: transparent;
+    border: #004aad;
+   }
+
+   .perfil{
+    background-color: transparent;
+    border: #004aad;
+    margin-right: 2%;
+   }
+
+   .titulo{
+    padding-left: 20%;
+   }
+
+   .notificacao-painel {
+    position: fixed;
+    top: 70px;
+    right: 20px;
+    width: 350px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    display: none;
+    flex-direction: column;
+    max-height: 70vh;
+    overflow: hidden;
+}
+
+.notificacao-painel.ativo {
+    display: flex; 
+}
+
+.notificacao-cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background: #004aad;
+    color: white;
+}
+
+.fechar-notificacao {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.notificacao-lista {
+    overflow-y: auto;
+}
+
+.notificacao-item {
+    display: flex;
+    gap: 12px;
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+    align-items: center;
+}
+
+.notificacao-item i {
+    color: #e74c3c;
+    font-size: 18px;
+}
+
+.notificacao-item p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.notificacao-item small {
+    color: #777;
+    font-size: 12px;
+}
+
+

@@ -24,3 +24,29 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+    
+    const btnMenu = document.querySelector('.menu');
+    const menuPainel = document.querySelector('.menu-painel');
+    const btnFecharMenu = document.querySelector('.fechar-menu');
+    
+    btnMenu.addEventListener('click', function(e) {
+        e.stopPropagation(); 
+        menuPainel.classList.add('ativo');
+    });
+    
+    btnFecharMenu.addEventListener('click', function() {
+        menuPainel.classList.remove('ativo');
+    });
+    
+    document.addEventListener('click', function(e) {
+        if (!menuPainel.contains(e.target) && e.target !== btnMenu) {
+            menuPainel.classList.remove('ativo');
+        }
+    });
+    
+    menuPainel.addEventListener('click', function(e) {
+        e.stopPropagation();
+    });
+});
+

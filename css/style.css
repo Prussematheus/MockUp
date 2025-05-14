@@ -156,7 +156,7 @@ h1{
         text-align: center;
     }
     
-   #tituloBemVindo{
+   #header{
     background-color: #004aad;
     height: 60px;
     margin: 0px;
@@ -332,3 +332,44 @@ h1{
     text-align: center;
 }
 
+.dashboard{
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+}
+
+.dashboard-container{
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.dashboard-fundo{
+    height: 80px;
+    width: 300px;
+    background-color: #d9d9d9;
+    display: flex;
+}
+
+.dashboard-rota{
+    background-color: #004aad;
+    color: white;
+    height: 60px;
+    margin: 10px;
+    font-size: 14px;
+}
+
+.rota{
+    padding: 5px;
+}
+
+.dashboard-horario{
+    background-color:rgb(255, 208, 0);
+    height: 60px;
+    width: 60px;
+    text-align: center;
+    margin: 10px;
+    
+}

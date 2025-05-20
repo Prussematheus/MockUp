@@ -489,3 +489,50 @@ h1{
     font-size: 18px;
     font-weight: bold;
 }
+
+.descreva{
+    margin-top: 30px;
+}
+
+.justificativa {
+    margin-top: 20px;
+    height: 200px;
+    width: 300px;
+    padding-top: 10px; 
+    vertical-align: top; 
+    resize: none; 
+}
+
+.insira-imagem{
+    font-size: 13px;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+label[for="imagem"] {
+    margin-top: 20px;
+    display: inline-block;
+    padding: 10px 15px;
+    background: #004aad;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+label[for="imagem"]:hover {
+    background: #004aad;
+}
+
+.enviar{
+    width: 300px;
+    height: 40px;
+    border-radius: 20px;
+    font-size: 18px;
+    font-weight: bold; 
+    margin-top: 100px;
+}
+
+

@@ -443,3 +443,49 @@ h1{
     margin-top: 200px;
  }
  
+.rota-status{
+    background-color: #d9d9d9;
+    width: 270px;
+    height: 30px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.status{
+    padding: 0px;
+    margin-top: 5px
+}
+
+.mudar-status{
+    background-color: #004aad;
+    width: 200px;
+    height: 40px;
+    margin-top: 20px;
+    border-radius: 20px;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.solicitar-manutencao{
+    background-color: #004aad;
+    width: 200px;
+    height: 40px;
+    margin-top: 20px;
+    border-radius: 20px;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.bloquear-rota{
+    background-color: #004aad;
+    width: 200px;
+    height: 40px;
+    margin-top: 20px;
+    border-radius: 20px;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+}

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bem Vindo</title>
+    <title>Solicitar Manutenção</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="../javascript/script.js"></script>
@@ -90,42 +90,52 @@
             </div>
         </div>
     </div>
-    
+
     <div class="espacamento"></div>
 
-    <div id="bemVindo">
-        <h1>Bem vindo Usuário(a)</h1>
-        <h4>ao Sistema Ferroviário</h3>
-            <i class="fas fa-train fa-5x"></i>
+    <div class="dashboard">
+        <h1>Solicitar Manutenção</h1>
     </div>
 
-    <div class="opcoes">
-        <div class="opcao">
-            <i class="fas fa-chart-line fa-2x" style="color: #ffffff;"></i>
-            <p class="nomeOpcao">Dashboard Geral</p>
-        </div>
-
-        <div class="opcao">
-            <i class="fas fa-map-marker-alt fa-2x" style="color: #ffffff;"></i>
-            <p class="nomeOpcao">Gerenciar as Rotas</p>
-        </div>
-
-        <div class="opcao">
-            <i class="fas fa-star fa-2x" style="color: #ffffff;"></i>
-            <p class="nomeOpcao">Reportar Problema</p>
-        </div>
-
-        <div class="opcao">
-            <i class="fas fa-file fa-2x" style="color: #ffffff;"></i>
-            <p class="nomeOpcao">Relatórios e Análises</p>
+    <div class="container">
+        <div class="descreva">
+            Descreva o motivo pelo qual a rota necessita de manutenção:
         </div>
     </div>
+
+    <div class="container">
+        <form id="formManutencao">
+            <div class="form-local">
+                <textarea class="localizacao" placeholder="Descreva a localização onde será feita a manutenção..."></textarea>
+            </div>
+            <div class="form-justificativa">
+                <textarea class="justificativa" placeholder="Diga o problema ocorrido na rota..."></textarea>
+            </div>
+    </div>
+    <div class="container">
+        <p class="insira-imagem">Se possível insira uma imagem do problema para auxiliar a manutenção.</p>
+    </div>
+    <div class="container">
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <label for="imagem">Anexar imagem</label>
+        <input 
+            type="file" 
+            id="imagem" 
+            name="imagem"
+            accept="image/*" 
+            required
+        >
+    </div>
+    </form>
+    </form>
+    </div>
+
+    <div class="container">
+        <button class="enviar">Enviar</button>
+    </div>
+
+
 
     <footer class="fixarRodape">
 
     </footer>
-
-
-</body>
-
-</html>

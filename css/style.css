@@ -501,6 +501,7 @@ h1{
     padding-top: 10px; 
     vertical-align: top; 
     resize: none; 
+    border-radius: 20px;
 }
 
 .insira-imagem{
@@ -532,7 +533,15 @@ label[for="imagem"]:hover {
     border-radius: 20px;
     font-size: 18px;
     font-weight: bold; 
-    margin-top: 100px;
+    margin-top: 20px;
 }
 
-
+.localizacao {
+    margin-top: 20px;
+    height: 50px;
+    width: 300px;
+    padding-top: 10px; 
+    vertical-align: top; 
+    resize: none; 
+    border-radius: 20px;
+}

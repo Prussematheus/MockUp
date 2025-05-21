@@ -1,3 +1,5 @@
+//Função para aparecer a tela flutuante de notificações ao clicar no ícone
+
 document.addEventListener('DOMContentLoaded', function() {
     
     const btnNotificacao = document.querySelector('.notificacao');
@@ -22,7 +24,10 @@ document.addEventListener('DOMContentLoaded', function() {
     painelNotificacao.addEventListener('click', function(e) {
         e.stopPropagation();
     });
-});
+}); 
+
+
+//Função para aparecer a tela flutuante do menu ao clicar no ícone
 
 document.addEventListener('DOMContentLoaded', function() {
     

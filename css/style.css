@@ -546,3 +546,28 @@ label[for="imagem"]:hover {
     resize: none; 
     border-radius: 20px;
 }
+
+.botao_inicio{
+    text-decoration: none;
+    color: black;
+}
+
+.botao_dashboard{
+    text-decoration: none;
+    color: black;
+}
+
+.botao_gestao_rotas{
+    text-decoration: none;
+    color: black;
+}
+
+.botao_gestao_rotas{
+    text-decoration: none;
+    color: black;
+}
+
+.botao_reportar_problema{
+    text-decoration: none;
+    color: black;
+}

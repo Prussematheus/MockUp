@@ -197,6 +197,7 @@ h1{
     justify-content: center;
     gap: 10px;
     border-radius: 20px;
+    border: none;
 }
 
    .nomeOpcao{
@@ -549,4 +550,5 @@ label[for="imagem"]:hover {
 .botao_inicio{
     text-decoration: none;
     color: black;
+
 }

@@ -1,20 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bem Vindo</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!--Link para a biblioteca de CSS Fontawesome para uso de ícones-->
     <script src="../javascript/script.js"></script>
+
+
 </head>
+
 
 <body>
 
+
     <header>
-        <div id="header"> <!--Header com ícones de botões para um menu e uma tela flutuante de notificações-->
+
+
+        <div id="header">
             <button class="menu">
                 <i class="fas fa-bars fa-2x" style="color: white;"></i>
             </button>
@@ -26,9 +32,12 @@
                 <i class="fas fa-user-circle fa-3x" style="color: white;"></i>
             </button>
         </div>
+
+
     </header>
 
-    <div class="notificacao-painel"> <!--Div para a tela de notificações, que fica oculto inicialmente devido ao CSS-->
+
+    <div class="notificacao-painel">
         <div class="notificacao-cabecalho">
             <h4>Notificações</h4>
             <button class="fechar-notificacao">&times;</button>
@@ -50,6 +59,7 @@
             </div>
         </div>
     </div>
+
 
     <div class="menu-painel">
         <div class="menu-cabecalho">
@@ -93,11 +103,13 @@
                 <div>
                     <p>Relatórios e Análises</p>
                 </div>
-            </a>
+            </div>
         </div>
     </div>
 
+
     <div class="espacamento"></div>
+
 
     <div id="bemVindo">
         <h1>Bem vindo Usuário(a)</h1>
@@ -105,38 +117,42 @@
             <i class="fas fa-train fa-5x"></i>
     </div>
 
-    <div class="opcoes"> <!--Lista de botões da página inicial-->
-        <a style="text-decoration: none;" href="dashboard.html">
-            <button class="opcao">
-                <i class="fas fa-chart-line fa-2x" style="color: #ffffff;"></i>
-                <p class="nomeOpcao">Dashboard Geral</p>
-            </button>
-        </a>
 
-        <a style="text-decoration: none;" href="gestao_rotas.html">
-            <button class="opcao">
-                <i class="fas fa-map-marker-alt fa-2x" style="color: #ffffff;"></i>
-                <p class="nomeOpcao">Gerenciar as Rotas</p>
-            </button>
-        </a>
+    <div class="opcoes">
+        <div class="opcao">
+            <i class="fas fa-chart-line fa-2x" style="color: #ffffff;"></i>
+            <p class="nomeOpcao">Dashboard Geral</p>
+        </div>
 
-        <a style="text-decoration: none;" href="reportar_problema.html">
-            <button class="opcao">
-                <i class="fas fa-star fa-2x" style="color: #ffffff;"></i>
-                <p class="nomeOpcao">Reportar Problema</p>
-            </button>
-        </a>
 
-        <a style="text-decoration: none;" href="relatorios_e_analises.html">
-            <button class="opcao">
-                <i class="fas fa-file fa-2x" style="color: #ffffff;"></i>
-                <p class="nomeOpcao">Relatórios e Análises</p>
-            </button>
-        </a>
+        <div class="opcao">
+            <i class="fas fa-map-marker-alt fa-2x" style="color: #ffffff;"></i>
+            <p class="nomeOpcao">Gerenciar as Rotas</p>
+        </div>
+
+
+        <div class="opcao">
+            <i class="fas fa-star fa-2x" style="color: #ffffff;"></i>
+            <p class="nomeOpcao">Reportar Problema</p>
+        </div>
+
+
+        <div class="opcao">
+            <i class="fas fa-file fa-2x" style="color: #ffffff;"></i>
+            <p class="nomeOpcao">Relatórios e Análises</p>
+        </div>
     </div>
-    
-    <footer class="fixarRodape"> <!--Footer fixo na parte de baixo da página, reutilizado para todas as páginas-->
+
+
+    <footer class="fixarRodape">
+
+
     </footer>
 
+
+
+
 </body>
+
+
 </html>

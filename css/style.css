@@ -545,3 +545,8 @@ label[for="imagem"]:hover {
     resize: none; 
     border-radius: 20px;
 }
+
+.botao_inicio{
+    text-decoration: none;
+    color: black;
+}

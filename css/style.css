@@ -550,5 +550,27 @@ label[for="imagem"]:hover {
 .menu-item-link{
     text-decoration: none;
     color: black;
+}
 
+.mapaRotas{
+    margin: 0px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.mapa{
+    height: 600px;
+    width: auto;
+    margin-top: 10%;
+}
+
+.problema{
+    height: 250px;
+    width: 350px;
+    border-radius: 20px;
+}
+
+.confidencial{
+    font-size: 12px;
+    padding: 2%;
 }

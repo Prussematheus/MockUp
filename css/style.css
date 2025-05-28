@@ -580,4 +580,15 @@ label[for="imagem"]:hover {
     justify-content: center;
     align-items: center;
     text-align: center;
-    }
+}
+
+.relatorio-rota{
+    background-color: #004aad;
+    color: white;
+    height: 60px;
+    width: 280px;
+    margin: 10px;
+    font-size: 14px;
+    text-align: center;
+}
+

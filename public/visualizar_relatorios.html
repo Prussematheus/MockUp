@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Relatório de Análises</title>
+    <title>Dashboard Geral</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="../javascript/script.js"></script>
@@ -100,49 +100,49 @@
             </a>
         </div>
     </div>
-
+    
     <div class="espacamento"></div>
 
     <div class="dashboard">
-        <h1>Relatório</h1>
+        <h1>Dashboard Geral</h1>
     </div>
 
-    <div class="container">
-        <div class="descreva">
-            Joinville : Norte-Zone Leste
+    <div class="dashboard-container"> <!--Container para centralização-->
+        <div class="dashboard-fundo"> <!--Divs para estilização com cores de fundo e posicionamento-->
+            <div class="relatorio-rota">
+                <p class="rota">Ver relatório - Joinville: Sul - Zona Industrial</p> 
+            </div>
+           
+            </div>
         </div>
     </div>
 
-    <div class="container"> <!--Form para justificar o bloqueio da rota-->
-        <form id="formBloquear">
-            <div class="form-justificativa">
-                <textarea class="justificativa" placeholder="A rota Norte - Zona Leste está com um problema fatal nos trilhos, podendo causar um acidente grave, a manutenção já foi solicitada e será realizada no dia XX/XX/XX, sendo de caráter urgente para a volta do funcionamento na rota"></textarea>
+    <div class="dashboard-container">
+        <div class="dashboard-fundo"> <!--Uso da mesma classe do dashboard, já que são páginas parecidas-->
+            <div class="relatorio-rota">
+                <p class="rota">Ver relatório - Joinville: Norte - Sul</p>
             </div>
+        </div>
     </div>
-    <div class="container">
-        <p class="insira-imagem"></p>
-    </div>
-    <div class="container"> <!--Seção do form para anexação de imagem do problema-->
-    <form action="/upload" method="post" enctype="multipart/form-data">
-        <label for="imagem">Visualizar imagem do problema</label>
-        <input 
-            type="file" 
-            id="imagem" 
-            name="imagem"
-            accept="image/*" 
-            required
-        >
-    </div>
-    </form>
-    </form>
-    </div>
+    
 
-    <div class="container"> <!--Botão para enviar-->
-        <button class="enviar">Enviar</button>
+    <div class="dashboard-container">
+        <div class="dashboard-fundo">
+            <div class="relatorio-rota">
+                <p class="rota">Ver relatório - Joinville: Norte - Zona Leste</p>
+            </div>
+        </div>
     </div>
+    
 
-
+    <div class="container"> <!--Botão de ver mais caso seja necessário-->
+        <button class="verMais">Ver Mais <i class="fas fa-chevron-down"></i></button> 
+    </div>
 
     <footer class="fixarRodape">
 
     </footer>
+
+</body>
+
+</html>

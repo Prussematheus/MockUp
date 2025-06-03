@@ -227,7 +227,9 @@ h1{
    .perfil{
     background-color: transparent;
     border: #004aad;
+    margin: 0px;
     margin-right: 2%;
+
    }
 
    .titulo{
@@ -601,5 +603,118 @@ label[for="imagem"]:hover {
     margin: 10px;
     font-size: 14px;
     text-align: center;
+}
+
+.tituloLogin{
+    text-align: center;
+}
+
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #34495e;
+    font-weight: bold;
+}
+
+input,
+select,
+textarea {
+    width: 95%;
+    border: 2px solid #bdc3c7;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #004aad;
+    outline: none;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.checkbox-group input {
+    width: auto;
+}
+
+button {
+    background-color: #004aad;
+    margin-top: 15px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #004aad;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+}
+
+.form-section {
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 25px;
+}
+
+.form-section h2 {
+    color: #004aad;
+    font-size: 1.2em;
+    margin-top: 0;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #004aad;
+}
+
+@media (max-width: 768px) {}
+
+.checkbox-group {
+    margin: 15px 0;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+
+#rendaFamiliarMensal{
+    margin-bottom: 15px;
+}
+
+#enviar {
+    background-color: #004aad;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    border: none !important;
+    transition: all linear 160ms;
+    cursor: pointer;
+    margin: 0 !important;
+}
+
+#confirmar_alteracoes{
+    font-weight: bold;
+    color: white;
+    background-color: #004aad;
 }
 

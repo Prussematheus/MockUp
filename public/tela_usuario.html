@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bloquear Rota</title>
+    <title>Tela de Usuário</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="../javascript/script.js"></script>
 
+
 </head>
 
+
 <body>
+
 
     <header>
 
@@ -31,6 +35,7 @@
 
 
     </header>
+
 
 
     <div class="notificacao-painel">
@@ -55,6 +60,7 @@
             </div>
         </div>
     </div>
+
 
     <div class="menu-painel">
         <div class="menu-cabecalho">
@@ -106,46 +112,50 @@
 
     <div class="espacamento"></div>
 
-    <div class="dashboard">
-        <h1>Bloquear Rota</h1>
-    </div>
+    <form id="formPesquisa">
 
-    <div class="container">
-        <div class="descreva">
-            Descreva o motivo pelo qual a rota deve ser bloqueada:
-        </div>
-    </div>
+        <div class="form-section">
+            <h2>Dados da Conta</h2>
+                <div class="form-group">
+                    <label for="nomeCompleto">Nome completo:</label>
+                    <input type="text" id="nomeCompleto" placeholder="Insira seu nome completo" required>
+                </div>
 
-    <div class="container"> <!--Form para justificar o bloqueio da rota-->
-        <form id="formBloquear">
-            <div class="form-justificativa">
-                <textarea class="justificativa" placeholder="Diga o problema ocorrido na rota..."></textarea>
+                <div class="form-group">
+                    <label for="email">Endereço de e-mail:</label>
+                    <input type="email" id="email" placeholder="Insira seu endereço de e-mail" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="telefone">Telefone:</label>
+                    <input type="tel" id="telefone" placeholder="Insira seu número de telefone" pattern="[0-9]{11}" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="endereco">Endereço completo:</label>
+                    <input type="text" id="endereco" placeholder="Insira seu endereço completo" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="dataNascimento">Data de nascimento:</label>
+                    <input type="date" id="dataNascimento" required>
+                    <button type="button" onclick='return validadata()'>Validar data</button>
+
+                </div>
             </div>
-    </div>
-    <div class="container">
-        <p class="insira-imagem">Se possível insira uma imagem do problema que houve na rota.</p>
-    </div>
-    <div class="container"> <!--Seção do form para anexação de imagem do problema-->
-    <form action="/upload" method="post" enctype="multipart/form-data">
-        <label for="imagem">Anexar imagem</label>
-        <input 
-            type="file" 
-            id="imagem" 
-            name="imagem"
-            accept="image/*" 
-            required
-        >
-    </div>
-    </form>
-    </form>
-    </div>
 
-    <div class="container"> <!--Botão para enviar-->
-        <button class="enviar">Enviar</button>
-    </div>
+            <div class="container">
+                <label for="confirmar"></label>
+                <input type="submit" id="confirmar_alteracoes" value="Confirmar Alterações">
+            </div>
 
+
+
+        </form>
 
 
     <footer class="fixarRodape">
 
     </footer>
+
+

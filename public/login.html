@@ -5,7 +5,7 @@
     <title>Página de Login</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script src="../javascript/script.js"></script>
+    <script src="../javascript/script.js" defer></script>
 </head>
 <body>
 
@@ -72,13 +72,10 @@
         <i class="fas fa-train fa-5x"></i>
     </div>
 
-   
-
     <p class="inserir">Por favor insira suas informações para Login</p>
 
-
-    <div class= 'container'> <!--Utilização de div container para centralização das divs-->
-        <form id="formLogin"> <!--Formulário de login para os usuários-->
+    <div class='container'>
+        <form id="formLogin">
             <div class="form-section">
                 <div class="form-group">
                     <label for="enderecoEmail"></label>
@@ -89,15 +86,12 @@
                     <input type="password" id="senha" placeholder="Senha" required>
                 </div>
                 <div class="remember">
-                    <label for="remember"></label> 
-                    <input type="checkbox" id="remember"> <p id="lembrar">Lembre-se de mim</p>
-                    <a class="esqueciSenha" href="senha_esquecida.html">Esqueci minha senha</a> <!--Link para caso a pessoa esqueça sua senha e vá para a página de recuperação de senha-->
-                    
+                    <input type="checkbox" id="remember"> 
+                    <p id="lembrar">Lembre-se de mim</p>
+                    <a class="esqueciSenha" href="senha_esquecida.html">Esqueci minha senha</a>
                 </div>
             </div>
-
-                <button class="btn" onclick="redirecionar_bem_vindo()">LOGIN</button>
-            
+            <button type="submit" class="btn">LOGIN</button>
         </form>
     </div>
 

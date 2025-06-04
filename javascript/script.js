@@ -55,29 +55,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-document.getElementById('formLogin').addEventListener( 'submit', function(event) {
-    event.preventDefault();
-
-    if(validarFormulario()) {
-        this.submit() ;
-    }
-}) ;
-
-function validarFormulario() { //Validação de email do login
-    var email = document.getElementById('enderecoEmail');
-    if (email.value !== '') {
-        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email.value)) {
-            alert('Por favor, insira um e-mail válido');
-            valid = false;
-        }
-    }
-}
-
-function redirecionar_bem_vindo() { //Função para redirecionar o botão de login para a página de bem vindo
-    window.location.href = 'bem_vindo.html';
-}
-
 function redirecionar_usuario() {
     window.location.href = 'tela_usuario.html';
 }
@@ -90,7 +67,7 @@ var dataNascimento = document.getElementById('dataNascimento');
 let valid = true;
 
 if (nomeCompleto.value.trim() === '') {
-    alert('Por favor, preencha o nome do cliente');
+    alert('Por favor, preencha seu nome');
     valid = false;
 }
 
@@ -140,4 +117,3 @@ function validadataNascimento() {
     return true;
 }
 
-validadataNascimento();

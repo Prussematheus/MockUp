@@ -108,6 +108,10 @@ if (email.value !== '') {
     }
 }
 
+if (!validadataNascimento()) {
+    valid = false;
+}
+
 function validadataNascimento() {
     var dataNascimento = document.getElementById("dataNascimento").value;
     if (!dataNascimento) {

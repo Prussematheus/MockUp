@@ -117,3 +117,39 @@ function validadataNascimento() {
     return true;
 }
 
+function login(){
+
+    var login = document.getElementById('enderecoEmail').value;
+    var senha = document.getElementById('senha').value;
+    
+    if(login == "admin@gmail.com" && senha == "admin"){
+        alert('Sucesso');
+        location.href = 'bem_vindo.html'
+    } else {
+        alert('Usuário ou senha incorretos');
+    }
+}
+
+function gerir_rota_um(){
+    window.location.href='gerir_rota_um.html'
+}
+
+function gerir_rota_dois(){
+    window.location.href='gerir_rota_dois.html'
+}
+
+function gerir_rota_tres(){
+    window.location.href='gerir_rota_tres.html'
+}
+
+function relatorio_um(){
+    window.location.href='relatorio_um.html'
+}
+
+function relatorio_dois(){
+    window.location.href='relatorio_dois.html'
+}
+
+function relatorio_tres(){
+    window.location.href='relatorio_tres.html'
+}

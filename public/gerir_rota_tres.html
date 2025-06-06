@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reportar Problema</title>
+    <title>Gerir Rota</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="../javascript/script.js"></script>
@@ -103,51 +103,43 @@
             </a>
         </div>
     </div>
+    
 
     <div class="espacamento"></div>
 
     <div class="dashboard">
-        <h1>Reportar Problema</h1>
+        <h1>Gerir Rota</h1>
     </div>
 
-    <div class="container">
-        <div class="descreva">
-            Descreva o bug ocorrido no aplicativo:
+    <div class="dashboard-container">
+        <div class="dashboard-fundo">
+            <div class="dashboard-rota">
+                <p class="rota">Joinville: Norte - Zona Leste</p>
+            </div>
+            <div class="gestao-rota-tres">
+                <i class="fas fa-triangle-exclamation fa-3x"></i>
+            </div>
         </div>
     </div>
 
     <div class="container">
-        <form id="formManutencao"> <!--Semelhante ao form do bloqueio de rota porém com uma descrição da localização exata do problema para a equipe de manutenção atuar-->
-            <div class="form-local">
-                <textarea class="problema" placeholder="Descreva o problema ocorrido..."></textarea>
-            </div>
-            
+        <div class="rota-status"> <!--Mostra o status da rota-->
+            <p class="status">Status: Necessita de Manutenção</p>
+        </div>
     </div>
 
-    <div class="container">
-        <p class="confidencial">Não inclua informações confidenciais</p> <i class="far fa-question-circle"></i>
+    <div class="container"> <!--Botão para mudar o status caso necessite de manutenção ou se a manutenção já tiver sido realizada-->
+        <button class="mudar-status">Mudar Status</button>
     </div>
 
-    <div class="imagem_problema">
-        <p class="insira-imagem">Se possível insira uma imagem do problema para auxiliar a manutenção.</p> 
-    </div>
-    <div class="container">
-    <form action="/upload" method="post" enctype="multipart/form-data">
-        <label for="imagem">Anexar imagem</label>
-        <input 
-            type="file" 
-            id="imagem" 
-            name="imagem"
-            accept="image/*" 
-            required
-        >
-    </div>
-    </form>
-    </form>
+    <div class="container"> <!--Botão para solicitar manutenção-->
+        <button class="solicitar-manutencao">Solicitar Manutenção</button>
     </div>
 
-    <div class="container">
-        <button class="enviar">Enviar</button>
+    <div class="container"> <!--Botão para o bloqueio de rotas-->
+        <button class="bloquear-rota">Bloquear Rota</button>
     </div>
 
+    <footer class="fixarRodape">
 
+    </footer>

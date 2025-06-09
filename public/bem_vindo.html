@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bem Vindo</title>
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> <!--Utilização do Fontawesome para ícones no trabalho-->
     <script src="../javascript/script.js"></script>
 
 
@@ -21,14 +21,14 @@
 
 
         <div id="header">
-            <button class="menu">
+            <button class="menu"> <!--Botão de menu-->
                 <i class="fas fa-bars fa-2x" style="color: white;"></i>
             </button>
             <h3 class="titulo">Sistema Ferroviário</h3>
             <button class="notificacao">
                 <i class="fas fa-bell fa-2x" style="color: white;"></i>
             </button>
-            <button class="perfil" onclick="redirecionar_usuario()">
+            <button class="perfil" onclick="redirecionar_usuario()"> <!--Redireciona o usuário para a tela de personalização de informações-->
                 <i class="fas fa-user-circle fa-3x" style="color: white;"></i>
             </button>
         </div>
@@ -37,13 +37,13 @@
     </header>
 
 
-    <div class="notificacao-painel">
+    <div class="notificacao-painel"> <!--Div do painel de notificações (inicialmente oculto)-->
         <div class="notificacao-cabecalho">
             <h4>Notificações</h4>
-            <button class="fechar-notificacao">&times;</button>
+            <button class="fechar-notificacao">&times;</button> <!--Botão para fechar o painel de notificações.-->
         </div>
         <div class="notificacao-lista">
-            <div class="notificacao-item">
+            <div class="notificacao-item"> <!--Define os itens (notificações) do painel-->
                 <i class="fas fa-train"></i>
                 <div>
                     <p>Trem #1245 atrasado em 15 minutos</p>
@@ -61,11 +61,11 @@
     </div>
 
 
-    <div class="menu-painel">
+    <div class="menu-painel"> <!--Painel do menu (inicalmente oculto)-->
         <div class="menu-cabecalho">
-            <button class="fechar-menu">&times;</button>
+            <button class="fechar-menu">&times;</button> <!--Botão para fechar o menu-->
         </div>
-        <div class="menu-lista">
+        <div class="menu-lista"> <!--Define cada item que terá no menu-->
             <a href="../public/bem_vindo.html" class="menu-item-link">
                 <div class="menu-item">
                     <i class="fas fa-house" style="color: #004aad;"></i>

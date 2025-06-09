@@ -55,9 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-function redirecionar_usuario() {
-    window.location.href = 'tela_usuario.html';
-}
+// Validação para a tela de personalização de informações do usuário
 
 var nomeCompleto = document.getElementById('nomeCompleto');
 var email = document.getElementById('email');
@@ -117,6 +115,8 @@ function validadataNascimento() {
     return true;
 }
 
+// Função para validar a tela de login
+
 function login(){
 
     var login = document.getElementById('enderecoEmail').value;
@@ -129,6 +129,8 @@ function login(){
         alert('Usuário ou senha incorretos');
     }
 }
+
+// Funções de redirecionamento de página
 
 function gerir_rota_um(){
     window.location.href='gerir_rota_um.html'
@@ -156,4 +158,8 @@ function relatorio_tres(){
 
 function visualizarMapa(){
     window.location.href='mapa.html'
+}
+
+function redirecionar_usuario() {
+    window.location.href = 'tela_usuario.html';
 }

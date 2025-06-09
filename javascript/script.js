@@ -153,3 +153,7 @@ function relatorio_dois(){
 function relatorio_tres(){
     window.location.href='relatorio_tres.html'
 }
+
+function visualizarMapa(){
+    window.location.href='mapa.html'
+}

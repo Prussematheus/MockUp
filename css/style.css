@@ -264,6 +264,7 @@ h1{
     color: white;
 }
 
+
 .fechar-notificacao {
     background: none;
     border: none;
@@ -271,6 +272,7 @@ h1{
     font-size: 24px;
     cursor: pointer;
     line-height: 1;
+    width: 30px;
 }
 
 .notificacao-lista {
@@ -460,7 +462,7 @@ h1{
 .rota-status{
     background-color: #d9d9d9;
     width: 270px;
-    height: 30px;
+    height: 50px;
     text-align: center;
     font-size: 15px;
     font-weight: bold;

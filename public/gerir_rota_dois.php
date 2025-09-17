@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reportar Problema</title>
+    <title>Gerir Rota</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="../javascript/script.js"></script>
@@ -56,12 +56,12 @@
         </div>
     </div>
 
-    <div class="menu-painel">
+    <div class="menu-painel"> <!--Painel do menu (inicalmente oculto)-->
         <div class="menu-cabecalho">
-            <button class="fechar-menu">&times;</button>
+            <button class="fechar-menu">&times;</button> <!--Botão para fechar o menu-->
         </div>
-        <div class="menu-lista">
-            <a href="../public/bem_vindo.html" class="menu-item-link">
+        <div class="menu-lista"> <!--Define cada item que terá no menu-->
+            <a href="../public/bem_vindo.php" class="menu-item-link">
                 <div class="menu-item">
                     <i class="fas fa-house" style="color: #004aad;"></i>
                     <div>
@@ -69,7 +69,7 @@
                     </div>
                 </div>
             </a>
-            <a href="../public/dashboard.html" class="menu-item-link">
+            <a href="../public/dashboard.php" class="menu-item-link">
                 <div class="menu-item">
                     <i class="fas fa-chart-line" style="color: #004aad;"></i>
                     <div>
@@ -77,7 +77,7 @@
                     </div>
                 </div>
             </a>
-            <a href="../public/gestao_rotas.html" class="menu-item-link">
+            <a href="../public/gestao_rotas.php" class="menu-item-link">
                 <div class="menu-item">
                     <i class="fas fa-map-marker-alt" style="color: #004aad;"></i>
                     <div>
@@ -85,7 +85,7 @@
                     </div>
                 </div>
             </a>
-            <a href="../public/reportar_problema.html" class="menu-item-link">
+            <a href="../public/reportar_problema.php" class="menu-item-link"> 
                 <div class="menu-item">
                     <i class="fas fa-star fa" style="color: #004aad;"></i>
                     <div>
@@ -93,7 +93,7 @@
                     </div>
                 </div>
             </a>
-            <a href="../public/visualizar_relatorios.html" class="menu-item-link">
+            <a href="../public/visualizar_relatorios.php" class="menu-item-link"> 
                 <div class="menu-item">
                     <i class="fas fa-file" style="color: #004aad;"></i>
                     <div>
@@ -101,45 +101,54 @@
                     </div>
                 </div>
             </a>
+
+            <a href="?logout=1" class="menu-item-link"> 
+                <div class="menu-item">
+                    <i class="fas fa-sign-out-alt" style="color: #004aad;"></i>
+                    <div>
+                        <p>Sair</p>
+                    </div>
+                </div>
+            </a>
         </div>
     </div>
+    
 
     <div class="espacamento"></div>
 
     <div class="dashboard">
-        <h1>Reportar Problema</h1>
+        <h1>Gerir Rota</h1>
     </div>
 
-    <div class="container">
-        <div class="descreva">
-            Descreva o bug ocorrido no aplicativo:
+    <div class="dashboard-container">
+        <div class="dashboard-fundo">
+            <div class="dashboard-rota">
+                <p class="rota">Joinville: Norte - Sul</p>
+            </div>
+            <div class="gestao-rota-dois">
+                <i class="fas fa-check-circle fa-3x"></i>
+            </div>
         </div>
     </div>
 
     <div class="container">
-        <form id="formManutencao">
-            <!--Semelhante ao form do bloqueio de rota porém com uma descrição da localização exata do problema para a equipe de manutenção atuar-->
-            <div class="container">
-                <textarea class="problema" placeholder="Descreva o problema ocorrido..."></textarea>
-            </div>
-            <div class="container">
-                <p class="confidencial">Não inclua informações confidenciais</p> <i class="far fa-question-circle"></i>
-            </div>
-            <div class="imagem_problema">
-                <p class="insira-imagem">Se possível insira uma imagem do problema para auxiliar a manutenção.</p>
-            </div>
-            <div class="container">
-                <form action="/upload" method="post" enctype="multipart/form-data">
-                    <label for="imagem">Anexar imagem</label>
-                    <input type="file" id="imagem" name="imagem" accept="image/*" required>
-            </div>
-
-            <div class="container">
-                <input type="submit" class="enviar"></button>
-            </div>
-
+        <div class="rota-status"> <!--Mostra o status da rota-->
+            <p class="status">Status: Operacional</p>
+        </div>
     </div>
 
-    </form>
-    </form>
+    <div class="container"> <!--Botão para mudar o status caso necessite de manutenção ou se a manutenção já tiver sido realizada-->
+        <button class="mudar-status">Mudar Status</button>
     </div>
+
+    <div class="container"> <!--Botão para solicitar manutenção-->
+        <button class="solicitar-manutencao">Solicitar Manutenção</button>
+    </div>
+
+    <div class="container"> <!--Botão para o bloqueio de rotas-->
+        <button class="bloquear-rota">Bloquear Rota</button>
+    </div>
+
+    <footer class="fixarRodape">
+
+    </footer>

@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE php>
+<php lang="en">
 
 
 <head>
@@ -9,8 +9,6 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> <!--Utilização do Fontawesome para ícones no trabalho-->
     <script src="../javascript/script.js"></script>
-
-
 </head>
 
 
@@ -36,6 +34,21 @@
 
     </header>
 
+    <?php
+
+        session_start();
+
+        if (isset($_GET['logout'])) {
+        session_destroy();
+        header("Location: index.php");
+        exit;
+        }
+
+        $msg = "";
+
+
+
+    ?>
 
     <div class="notificacao-painel"> <!--Div do painel de notificações (inicialmente oculto)-->
         <div class="notificacao-cabecalho">
@@ -66,7 +79,7 @@
             <button class="fechar-menu">&times;</button> <!--Botão para fechar o menu-->
         </div>
         <div class="menu-lista"> <!--Define cada item que terá no menu-->
-            <a href="../public/bem_vindo.html" class="menu-item-link">
+            <a href="../public/bem_vindo.php" class="menu-item-link">
                 <div class="menu-item">
                     <i class="fas fa-house" style="color: #004aad;"></i>
                     <div>
@@ -74,7 +87,7 @@
                     </div>
                 </div>
             </a>
-            <a href="../public/dashboard.html" class="menu-item-link">
+            <a href="../public/dashboard.php" class="menu-item-link">
                 <div class="menu-item">
                     <i class="fas fa-chart-line" style="color: #004aad;"></i>
                     <div>
@@ -82,7 +95,7 @@
                     </div>
                 </div>
             </a>
-            <a href="../public/gestao_rotas.html" class="menu-item-link">
+            <a href="../public/gestao_rotas.php" class="menu-item-link">
                 <div class="menu-item">
                     <i class="fas fa-map-marker-alt" style="color: #004aad;"></i>
                     <div>
@@ -90,7 +103,7 @@
                     </div>
                 </div>
             </a>
-            <a href="../public/reportar_problema.html" class="menu-item-link"> 
+            <a href="../public/reportar_problema.php" class="menu-item-link"> 
                 <div class="menu-item">
                     <i class="fas fa-star fa" style="color: #004aad;"></i>
                     <div>
@@ -98,11 +111,20 @@
                     </div>
                 </div>
             </a>
-            <a href="../public/visualizar_relatorios.html" class="menu-item-link"> 
+            <a href="../public/visualizar_relatorios.php" class="menu-item-link"> 
                 <div class="menu-item">
                     <i class="fas fa-file" style="color: #004aad;"></i>
                     <div>
                         <p>Relatórios e análises</p>
+                    </div>
+                </div>
+            </a>
+
+            <a href="?logout=1" class="menu-item-link"> 
+                <div class="menu-item">
+                    <i class="fas fa-sign-out-alt" style="color: #004aad;"></i>
+                    <div>
+                        <p>Sair</p>
                     </div>
                 </div>
             </a>
@@ -119,34 +141,37 @@
     </div>
 
     <div class="opcoes"> <!--Lista de botões da página inicial-->
-        <a style="text-decoration: none;" href="dashboard.html">
+        <a style="text-decoration: none;" href="../public/dashboard.php">
             <button class="opcao">
                 <i class="fas fa-chart-line fa-2x" style="color: #ffffff;"></i>
                 <p class="nomeOpcao">Dashboard Geral</p>
             </button>
         </a>
 
-        <a style="text-decoration: none;" href="gestao_rotas.html">
+        <a style="text-decoration: none;" href="../public/gestao_rotas.php">
             <button class="opcao">
                 <i class="fas fa-map-marker-alt fa-2x" style="color: #ffffff;"></i>
                 <p class="nomeOpcao">Gerenciar as Rotas</p>
             </button>
         </a>
 
-        <a style="text-decoration: none;" href="reportar_problema.html"> <!--Ainda não fizemos essa página-->
+        <a style="text-decoration: none;" href="../public/reportar_problema.php"> <!--Ainda não fizemos essa página-->
             <button class="opcao">
                 <i class="fas fa-star fa-2x" style="color: #ffffff;"></i>
                 <p class="nomeOpcao">Reportar Problema</p>
             </button>
         </a>
 
-        <a style="text-decoration: none;" href="visualizar_relatorios.html"> <!--Ainda não fizemos essa página-->
+        <a style="text-decoration: none;" href="../public/visualizar_relatorios.php"> <!--Ainda não fizemos essa página-->
             <button class="opcao">
                 <i class="fas fa-file fa-2x" style="color: #ffffff;"></i>
                 <p class="nomeOpcao">Relatórios e Análises</p>
             </button>
         </a>
+
     </div>
+
+    <p><a href="?logout=1">Sair</a></p>
 
     <footer class="fixarRodape">
 
@@ -155,4 +180,4 @@
 
 </body>
 
-</html>
+</php>

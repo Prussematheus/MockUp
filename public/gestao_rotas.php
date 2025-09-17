@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visualizar Relatórios</title>
+    <title>Gestão de Rotas</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="../javascript/script.js"></script>
@@ -56,12 +56,12 @@
         </div>
     </div>
 
-    <div class="menu-painel">
+    <div class="menu-painel"> <!--Painel do menu (inicalmente oculto)-->
         <div class="menu-cabecalho">
-            <button class="fechar-menu">&times;</button>
+            <button class="fechar-menu">&times;</button> <!--Botão para fechar o menu-->
         </div>
-        <div class="menu-lista">
-            <a href="../public/bem_vindo.html" class="menu-item-link">
+        <div class="menu-lista"> <!--Define cada item que terá no menu-->
+            <a href="../public/bem_vindo.php" class="menu-item-link">
                 <div class="menu-item">
                     <i class="fas fa-house" style="color: #004aad;"></i>
                     <div>
@@ -69,7 +69,7 @@
                     </div>
                 </div>
             </a>
-            <a href="../public/dashboard.html" class="menu-item-link">
+            <a href="../public/dashboard.php" class="menu-item-link">
                 <div class="menu-item">
                     <i class="fas fa-chart-line" style="color: #004aad;"></i>
                     <div>
@@ -77,7 +77,7 @@
                     </div>
                 </div>
             </a>
-            <a href="../public/gestao_rotas.html" class="menu-item-link">
+            <a href="../public/gestao_rotas.php" class="menu-item-link">
                 <div class="menu-item">
                     <i class="fas fa-map-marker-alt" style="color: #004aad;"></i>
                     <div>
@@ -85,7 +85,7 @@
                     </div>
                 </div>
             </a>
-            <a href="../public/reportar_problema.html" class="menu-item-link"> 
+            <a href="../public/reportar_problema.php" class="menu-item-link"> 
                 <div class="menu-item">
                     <i class="fas fa-star fa" style="color: #004aad;"></i>
                     <div>
@@ -93,7 +93,7 @@
                     </div>
                 </div>
             </a>
-            <a href="../public/visualizar_relatorios.html" class="menu-item-link"> 
+            <a href="../public/visualizar_relatorios.php" class="menu-item-link"> 
                 <div class="menu-item">
                     <i class="fas fa-file" style="color: #004aad;"></i>
                     <div>
@@ -101,45 +101,59 @@
                     </div>
                 </div>
             </a>
+
+            <a href="?logout=1" class="menu-item-link"> 
+                <div class="menu-item">
+                    <i class="fas fa-sign-out-alt" style="color: #004aad;"></i>
+                    <div>
+                        <p>Sair</p>
+                    </div>
+                </div>
+            </a>
         </div>
     </div>
-    
+
     <div class="espacamento"></div>
 
     <div class="dashboard">
-        <h1>Visualizar Relatórios</h1>
+        <h1>Gestão de Rotas</h1>
     </div>
 
-    <div class="dashboard-container"> <!--Container para centralização-->
-        <div class="dashboard-fundo"> <!--Divs para estilização com cores de fundo e posicionamento-->
-            <button onclick="relatorio_um()" class="relatorio-rota">
-                <p class="rota">Ver relatório - Joinville: Sul - Zona Industrial</p> 
+    <div class="dashboard-container"> <!--Reutilização da página anterior pois eram semelhantes-->
+        <div class="dashboard-fundo">
+            <button onclick="gerir_rota_um()" class="dashboard-rota">
+                <p class="rota">Joinville: Sul - Zona Industrial</p>
             </button>
-           
+            <div class="gestao-rota-um"> <!--Classes numeradas pois a cor deveria ser diferente para cada uma-->
+                <i class="fas fa-triangle-exclamation fa-3x"></i>
             </div>
         </div>
     </div>
 
     <div class="dashboard-container">
-        <div class="dashboard-fundo"> <!--Uso da mesma classe do dashboard, já que são páginas parecidas-->
-            <button onclick="relatorio_dois()" class="relatorio-rota">
-                <p class="rota">Ver relatório - Joinville: Norte - Sul</p>
+        <div class="dashboard-fundo">
+            <button onclick="gerir_rota_dois()" class="dashboard-rota">
+                <p class="rota">Joinville: Norte - Sul</p>
             </button>
+            <div class="gestao-rota-dois">
+                <i class="fas fa-check-circle fa-3x"></i>
+            </div>
         </div>
     </div>
-    
 
     <div class="dashboard-container">
         <div class="dashboard-fundo">
-            <button onclick="relatorio_tres()" class="relatorio-rota">
-                <p class="rota">Ver relatório - Joinville: Norte - Zona Leste</p>
+            <button onclick="gerir_rota_tres()" class="dashboard-rota">
+                <p class="rota">Joinville: Norte - Zona Leste</p>
             </button>
+            <div class="gestao-rota-tres">
+                <i class="fas fa-triangle-exclamation fa-3x"></i>
+            </div>
         </div>
     </div>
-    
 
-    <div class="container"> <!--Botão de ver mais caso seja necessário-->
-        <button class="verMais">Ver Mais <i class="fas fa-chevron-down"></i></button> 
+    <div class="container">
+        <button onclick="visualizarMapa()" class="verMapa">Ver Mapa <i class="fas fa-map-location-dot"></i> </button>
     </div>
 
     <footer class="fixarRodape">

@@ -56,12 +56,12 @@
         </div>
     </div>
 
-    <div class="menu-painel">
+    <div class="menu-painel"> <!--Painel do menu (inicalmente oculto)-->
         <div class="menu-cabecalho">
-            <button class="fechar-menu">&times;</button>
+            <button class="fechar-menu">&times;</button> <!--Botão para fechar o menu-->
         </div>
-        <div class="menu-lista">
-            <a href="../public/bem_vindo.html" class="menu-item-link">
+        <div class="menu-lista"> <!--Define cada item que terá no menu-->
+            <a href="../public/bem_vindo.php" class="menu-item-link">
                 <div class="menu-item">
                     <i class="fas fa-house" style="color: #004aad;"></i>
                     <div>
@@ -69,7 +69,7 @@
                     </div>
                 </div>
             </a>
-            <a href="../public/dashboard.html" class="menu-item-link">
+            <a href="../public/dashboard.php" class="menu-item-link">
                 <div class="menu-item">
                     <i class="fas fa-chart-line" style="color: #004aad;"></i>
                     <div>
@@ -77,7 +77,7 @@
                     </div>
                 </div>
             </a>
-            <a href="../public/gestao_rotas.html" class="menu-item-link">
+            <a href="../public/gestao_rotas.php" class="menu-item-link">
                 <div class="menu-item">
                     <i class="fas fa-map-marker-alt" style="color: #004aad;"></i>
                     <div>
@@ -85,7 +85,7 @@
                     </div>
                 </div>
             </a>
-            <a href="../public/reportar_problema.html" class="menu-item-link"> 
+            <a href="../public/reportar_problema.php" class="menu-item-link"> 
                 <div class="menu-item">
                     <i class="fas fa-star fa" style="color: #004aad;"></i>
                     <div>
@@ -93,11 +93,20 @@
                     </div>
                 </div>
             </a>
-            <a href="../public/visualizar_relatorios.html" class="menu-item-link"> 
+            <a href="../public/visualizar_relatorios.php" class="menu-item-link"> 
                 <div class="menu-item">
                     <i class="fas fa-file" style="color: #004aad;"></i>
                     <div>
                         <p>Relatórios e análises</p>
+                    </div>
+                </div>
+            </a>
+
+            <a href="?logout=1" class="menu-item-link"> 
+                <div class="menu-item">
+                    <i class="fas fa-sign-out-alt" style="color: #004aad;"></i>
+                    <div>
+                        <p>Sair</p>
                     </div>
                 </div>
             </a>
@@ -116,10 +125,10 @@
         </div>
     </div>
 
-    <div class="container"> <!--Form para justificar o bloqueio da rota-->
-        <form id="formBloquear">
-            <div class="form-justificativa">
-                <textarea class="justificativa" placeholder="A rota Norte - Zona Leste está com um problema fatal nos trilhos, podendo causar um acidente grave, a manutenção já foi solicitada e será realizada no dia XX/XX/XX, sendo de caráter urgente para a volta do funcionamento na rota."></textarea>
+    <div class="container"> <!--Mostra os relatórios-->
+        <form id="formBloquear"> <!--Usados da página de bloqueio de rota pois eram semelhantes-->
+            <div class="form-justificativa"> <!--Exemplo de relatório-->
+                <textarea class="justificativa" placeholder="A rota Sul - Zona Industrial necessita de uma revisão nos trilhos, nada que comprometa a segurança dos passageiros, favor agendar a manutenção dentro de uma semana."></textarea>
             </div>
     </div>
     <div class="container">

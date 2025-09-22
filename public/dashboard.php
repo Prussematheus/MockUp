@@ -7,6 +7,7 @@
     <title>Dashboard Geral</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="../javascript/script.js"></script>
 
 </head>
@@ -14,6 +15,8 @@
 <body>
 
    <?php
+
+        include("conexao.php");
 
         session_start();
 
@@ -27,6 +30,7 @@
 
 
 
+
     ?>
 
 
@@ -37,7 +41,7 @@
             <button class="menu">
                 <i class="fas fa-bars fa-2x" style="color: white;"></i>
             </button>
-            <h3 class="titulo">Sistema Ferroviário</h3>
+            <h3 class="titulo" style="color: white;">Sistema Ferroviário </h3>
             <button class="notificacao">
                 <i class="fas fa-bell fa-2x" style="color: white;"></i>
             </button>
@@ -168,6 +172,23 @@
             </div>
         </div>
     </div>
+<?php
+        $sql_usuarios = "SELECT nome_funcionario, nome_usuario, email_usuario, telefone_usuario FROM usuarios";
+
+        echo "<h1 class='h1'> Lista de Usuários </h1>";
+
+        $stmt = mysqli_prepare($conn, $sql_usuarios);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+        while ($dado = mysqli_fetch_assoc($result)) {
+        echo "<ul class='list-group mb-3'>";
+        echo "<li class='list-group-item'> Nome Funcionário: " . $dado['nome_funcionario'] . "</li>";
+        echo "<li class='list-group-item'> Nome Usuário: " . $dado['nome_usuario'] . "</li>";
+        echo "<li class='list-group-item'> Email: " . $dado['email_usuario']. "</li>";
+        echo "<li class='list-group-item'> Telefone: " . $dado['telefone_usuario']. "</li>";
+        echo "</ul>";
+}
+?>
 
     
 

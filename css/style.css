@@ -378,6 +378,8 @@ h1{
     margin: 10px;
     font-size: 14px;
     text-align: center;
+    justify-content: center;
+    align-items: center;
 }
 
 .rota{

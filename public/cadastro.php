@@ -20,8 +20,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $nome_funcionario = $_POST["nome_funcionario"];
     $nome_usuario = $_POST["nome_usuario"];
-    $email_usuario = $_POST["email_usuario"];
-    $senha_usuario = $_POST["senha_usuario"];
+    $email_usuario = $_POST["enderecoEmail"];
+    $senha_usuario = $_POST["senha"];
     $telefone_usuario = $_POST["telefone_usuario"];
     $cpf_usuario = $_POST["cpf_usuario"];
     

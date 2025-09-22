@@ -8,6 +8,23 @@
 </head>
 <body>
 
+   <?php
+
+        session_start();
+
+        if (isset($_GET['logout'])) {
+        session_destroy();
+        header("Location: index.php");
+        exit;
+        }
+
+        $msg = "";
+
+
+
+    ?>
+
+
 <header>
 
     <div id="titulo">

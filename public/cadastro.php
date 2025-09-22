@@ -16,6 +16,14 @@
 
     session_start();
 
+    if (isset($_GET['logout'])) {
+    session_destroy();
+    header("Location: index.php");
+    exit;
+    }
+
+    $msg = "";
+
 if($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $nome_funcionario = $_POST["nome_funcionario"];

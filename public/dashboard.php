@@ -13,6 +13,23 @@
 
 <body>
 
+   <?php
+
+        session_start();
+
+        if (isset($_GET['logout'])) {
+        session_destroy();
+        header("Location: index.php");
+        exit;
+        }
+
+        $msg = "";
+
+
+
+    ?>
+
+
     <header>
 
 
@@ -152,9 +169,7 @@
         </div>
     </div>
 
-    <div class="container"> <!--Botão de ver mais caso seja necessário-->
-        <button class="verMais">Ver Mais <i class="fas fa-chevron-down"></i></button> 
-    </div>
+    
 
     <footer class="fixarRodape">
 

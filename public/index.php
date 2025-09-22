@@ -36,7 +36,7 @@
         $stmt -> close();
 
         if($dados) {
-            $_SESSION["user_id"] = $dados["id_usuario"];
+            $_SESSION["user_id"] = $dados["id_usuario"];   
             header("Location: bem_vindo.php");
             
             exit;

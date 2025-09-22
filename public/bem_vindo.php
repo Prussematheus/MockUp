@@ -2,6 +2,7 @@
 <php lang="en">
 
 
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -42,7 +43,7 @@
         session_destroy();
         header("Location: index.php");
         exit;
-        }
+         }
 
         $msg = "";
 
@@ -120,7 +121,7 @@
                 </div>
             </a>
 
-            <a href="?logout=1" class="menu-item-link"> 
+            <a href="index.php?logout=1" class="menu-item-link"> 
                 <div class="menu-item">
                     <i class="fas fa-sign-out-alt" style="color: #004aad;"></i>
                     <div>

@@ -32,3 +32,16 @@ CREATE TABLE sensores_data(
   data_sensor_data DATETIME DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY (id_sensor) REFERENCES sensores(id_sensor)
 )
+
+INSERT INTO sensores (tipo_sensor, descricao_sensor, status_sensor) VALUES
+('Temperatura', 'Sensor de temperatura para monitorar a temperatura ambiente', 'Ativo'),
+('Umidade', 'Sensor de umidade para medir a umidade do ar', 'Ativo'),
+('Pressão', 'Sensor de pressão para monitorar a pressão atmosférica', 'Inativo');
+
+INSERT INTO sensores_data (id_sensor, valor_sensor, data_sensor) VALUES
+(1, 22.5, '2024-06-01 10:00:00'),
+(1, 23.0, '2024-06-01 11:00:00'),
+(2, 45.0, '2024-06-01 10:00:00'),
+(2, 50.0, '2024-06-01 11:00:00'),
+(3, 1013.25, '2024-06-01 10:00:00'),
+(3, 1012.80, '2024-06-01 11:00:00');

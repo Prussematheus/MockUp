@@ -9,26 +9,6 @@
     <script src="../javascript/script.js"></script>
 </head>
 
-    <?php
-
-        session_start();
-
-        if (isset($_GET['logout'])) {
-            session_destroy();
-            header("Location: index.php");
-            exit;
-        } elseif (empty($_SESSION["user_id"])) {
-            header("Location: index.php");
-            exit;
-        }
-
-         include("painel_completo.php");
-        
-
-        $msg = "";
-
-    ?>
-    
 <body>
         <div class="notificacao-painel"> <!--Div do painel de notificações (inicialmente oculto)-->
         <div class="notificacao-cabecalho">

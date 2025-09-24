@@ -9,14 +9,15 @@ CREATE TABLE usuarios(
   email_usuario VARCHAR(255) NOT NULL,
    senha_usuario VARCHAR(255) NOT NULL,
   telefone_usuario VARCHAR(15) NOT NULL,
-  cpf_usuario VARCHAR(14) NOT NULL
+  cpf_usuario VARCHAR(14) NOT NULL,
+  admnistrador VARCHAR(3) NOT NULL
 );
 
 
-INSERT INTO usuarios (nome_funcionario, nome_usuario, email_usuario, senha_usuario, telefone_usuario, cpf_usuario) VALUES
-('Lucas Kormann', 'LucasK', 'lucasK@gmail.com', '12345', '(47) 99919-3898', '131.115.069-24'),
-('Ana Clara', 'AnaC', 'AnaC@email.com', '54321', '(47) 98888-7777', '222.222.222-22'),
-('João Silva', 'JoaoS', 'JoaoS@email.com', '09876', '(47) 97777-6666', '333.333.333-33');
+INSERT INTO usuarios (nome_funcionario, nome_usuario, email_usuario, senha_usuario, telefone_usuario, cpf_usuario, admnistrador) VALUES
+('Lucas Kormann', 'LucasK', 'lucasK@gmail.com', '12345', '(47) 99919-3898', '131.115.069-24', 'Sim'),
+('Ana Clara', 'AnaC', 'AnaC@email.com', '54321', '(47) 98888-7777', '222.222.222-22', 'Não'),
+('João Silva', 'JoaoS', 'JoaoS@email.com', '09876', '(47) 97777-6666', '333.333.333-33', 'Não');
 
 CREATE TABLE sensores(
   id_sensor INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -31,7 +32,7 @@ CREATE TABLE sensores_data(
   valor_sensor FLOAT NOT NULL,
   data_sensor DATETIME DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY (id_sensor) REFERENCES sensores(id_sensor)
-)
+);
 
 INSERT INTO sensores (tipo_sensor, descricao_sensor, status_sensor) VALUES
 ('Temperatura', 'Sensor de temperatura para monitorar a temperatura ambiente', 'Ativo'),

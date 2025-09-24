@@ -47,8 +47,6 @@
 
         $msg = "";
 
-
-
     ?>
 
     <div class="espacamento"></div> <!--Apenas um espaçamento com a cor cinza-->

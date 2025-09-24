@@ -1,62 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bloquear Rota</title>
+    <title>Painéis</title>
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> <!--Utilização do Fontawesome para ícones no trabalho-->
     <script src="../javascript/script.js"></script>
-
 </head>
 
-<body>
-
-   <?php
+    <?php
 
         session_start();
 
         if (isset($_GET['logout'])) {
-        session_destroy();
-        header("Location: index.php");
-        exit;
+            session_destroy();
+            header("Location: index.php");
+            exit;
+        } elseif (empty($_SESSION["user_id"])) {
+            header("Location: index.php");
+            exit;
         }
+
+         include("painel_completo.php");
+        
 
         $msg = "";
 
-
-
     ?>
-
-
-    <header>
-
-
-        <div id="header">
-            <button class="menu">
-                <i class="fas fa-bars fa-2x" style="color: white;"></i>
-            </button>
-            <h3 class="titulo">Sistema Ferroviário</h3>
-            <button class="notificacao">
-                <i class="fas fa-bell fa-2x" style="color: white;"></i>
-            </button>
-            <button class="perfil" onclick="redirecionar_usuario()">
-                <i class="fas fa-user-circle fa-3x" style="color: white;"></i>
-            </button>
-        </div>
-
-
-    </header>
-
-
-    <div class="notificacao-painel">
+    
+<body>
+        <div class="notificacao-painel"> <!--Div do painel de notificações (inicialmente oculto)-->
         <div class="notificacao-cabecalho">
             <h4>Notificações</h4>
-            <button class="fechar-notificacao">&times;</button>
+            <button class="fechar-notificacao">&times;</button> <!--Botão para fechar o painel de notificações.-->
         </div>
         <div class="notificacao-lista">
-            <div class="notificacao-item">
+            <div class="notificacao-item"> <!--Define os itens (notificações) do painel-->
                 <i class="fas fa-train"></i>
                 <div>
                     <p>Trem #1245 atrasado em 15 minutos</p>
@@ -72,6 +52,7 @@
             </div>
         </div>
     </div>
+
 
     <div class="menu-painel"> <!--Painel do menu (inicalmente oculto)-->
         <div class="menu-cabecalho">
@@ -129,49 +110,5 @@
             </a>
         </div>
     </div>
-
-    <div class="espacamento"></div>
-
-    <div class="dashboard">
-        <h1>Bloquear Rota</h1>
-    </div>
-
-    <div class="container">
-        <div class="descreva">
-            Descreva o motivo pelo qual a rota deve ser bloqueada:
-        </div>
-    </div>
-
-    <div class="container"> <!--Form para justificar o bloqueio da rota-->
-        <form id="formBloquear">
-            <div class="form-justificativa">
-                <textarea class="justificativa" placeholder="Diga o problema ocorrido na rota..."></textarea>
-            </div>
-    </div>
-    <div class="container">
-        <p class="insira-imagem">Se possível insira uma imagem do problema que houve na rota.</p>
-    </div>
-    <div class="container"> <!--Seção do form para anexação de imagem do problema-->
-    <form action="/upload" method="post" enctype="multipart/form-data">
-        <label for="imagem">Anexar imagem</label>
-        <input 
-            type="file" 
-            id="imagem" 
-            name="imagem"
-            accept="image/*" 
-            required
-        >
-    </div>
-    </form>
-    </form>
-    </div>
-
-    <div class="container"> <!--Botão para enviar-->
-        <button class="enviar">Enviar</button>
-    </div>
-
-
-
-    <footer class="fixarRodape">
-
-    </footer>
+</body>
+</html>

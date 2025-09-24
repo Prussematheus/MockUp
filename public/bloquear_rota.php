@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visualizar Relatórios</title>
+    <title>Bloquear Rota</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="../javascript/script.js"></script>
@@ -52,49 +52,50 @@
 
 
     </header>
-    
+
+
     <div class="espacamento"></div>
 
     <div class="dashboard">
-        <h1>Visualizar Relatórios</h1>
+        <h1>Bloquear Rota</h1>
     </div>
 
-    <div class="dashboard-container"> <!--Container para centralização-->
-        <div class="dashboard-fundo"> <!--Divs para estilização com cores de fundo e posicionamento-->
-            <button onclick="relatorio_um()" class="relatorio-rota">
-                <p class="rota">Ver relatório - Joinville: Sul - Zona Industrial</p> 
-            </button>
-           
+    <div class="container">
+        <div class="descreva">
+            Descreva o motivo pelo qual a rota deve ser bloqueada:
+        </div>
+    </div>
+
+    <div class="container"> <!--Form para justificar o bloqueio da rota-->
+        <form id="formBloquear">
+            <div class="form-justificativa">
+                <textarea class="justificativa" placeholder="Diga o problema ocorrido na rota..."></textarea>
             </div>
-        </div>
+    </div>
+    <div class="container">
+        <p class="insira-imagem">Se possível insira uma imagem do problema que houve na rota.</p>
+    </div>
+    <div class="container"> <!--Seção do form para anexação de imagem do problema-->
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <label for="imagem">Anexar imagem</label>
+        <input 
+            type="file" 
+            id="imagem" 
+            name="imagem"
+            accept="image/*" 
+            required
+        >
+    </div>
+    </form>
+    </form>
     </div>
 
-    <div class="dashboard-container">
-        <div class="dashboard-fundo"> <!--Uso da mesma classe do dashboard, já que são páginas parecidas-->
-            <button onclick="relatorio_dois()" class="relatorio-rota">
-                <p class="rota">Ver relatório - Joinville: Norte - Sul</p>
-            </button>
-        </div>
+    <div class="container"> <!--Botão para enviar-->
+        <button class="enviar">Enviar</button>
     </div>
-    
 
-    <div class="dashboard-container">
-        <div class="dashboard-fundo">
-            <button onclick="relatorio_tres()" class="relatorio-rota">
-                <p class="rota">Ver relatório - Joinville: Norte - Zona Leste</p>
-            </button>
-        </div>
-    </div>
-    
 
-    <div class="container"> <!--Botão de ver mais caso seja necessário-->
-        <button class="verMais">Ver Mais <i class="fas fa-chevron-down"></i></button> 
-    </div>
 
     <footer class="fixarRodape">
 
     </footer>
-
-</body>
-
-</html>

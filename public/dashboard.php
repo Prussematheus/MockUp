@@ -18,7 +18,7 @@
             header("Location: index.php");
             exit;
         } elseif (!$auth->isLoggedIn()) {
-        header("Location: login.php");
+        header("Location: index.php");
         exit();
         }
         

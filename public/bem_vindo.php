@@ -1,3 +1,34 @@
+   <?php
+
+        session_start();
+
+        include("../includes/painel_completo.php");
+        include("../includes/conexao.php");
+        include("../src/Auth.php");
+        include("../src/User.php");
+
+        $auth = new Auth();
+        $user = new User($conn);
+
+        $currentUser = $user->getUserById($_SESSION['user_id']);
+
+
+                if (isset($_GET['logout'])) {
+            session_destroy();
+            header("Location: index.php");
+            exit;
+        }
+        if (!$auth->isLoggedIn()) {
+            header("Location: index.php");
+            exit;
+        }
+    
+
+        $msg = "";
+
+    ?>
+
+
 <!DOCTYPE php>
 <php lang="en">
 
@@ -34,27 +65,6 @@
 
 
     </header>
-
-  
-   <?php
-
-        session_start();
-
-        if (isset($_GET['logout'])) {
-            session_destroy();
-            header("Location: index.php");
-            exit;
-        } elseif (empty($_SESSION["user_id"])) {
-            header("Location: index.php");
-            exit;
-        }
-
-         include("painel_completo.php");
-        
-
-        $msg = "";
-
-    ?>
 
     <div class="espacamento"></div> <!--Apenas um espaçamento com a cor cinza-->
 

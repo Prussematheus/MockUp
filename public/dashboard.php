@@ -1,3 +1,32 @@
+<?php
+
+        session_start();
+        
+        include("../includes/painel_completo.php");
+        include("../includes/conexao.php");
+        include("../src/Auth.php");
+        include("../src/User.php");
+
+        $auth = new Auth();
+        $user = new User($conn);
+
+        $currentUser = $user->getUserById($_SESSION['user_id']);
+
+
+        if (isset($_GET['logout'])) {
+            session_destroy();
+            header("Location: index.php");
+            exit;
+        } elseif (!$auth->isLoggedIn()) {
+        header("Location: login.php");
+        exit();
+        }
+        
+        $msg = "";
+
+
+    ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,30 +42,6 @@
 </head>
 
 <body>
-
-   <?php
-
-        include("conexao.php");
-
-        session_start();
-
-        if (isset($_GET['logout'])) {
-            session_destroy();
-            header("Location: index.php");
-            exit;
-        } elseif (empty($_SESSION["user_id"])) {
-            header("Location: index.php");
-            exit;
-        }
-
-         include("painel_completo.php");
-        
-
-        $msg = "";
-
-
-    ?>
-
 
     <header>
 
@@ -96,23 +101,34 @@
             </div>
         </div>
     </div>
-<?php
-        $sql_usuarios = "SELECT nome_funcionario, nome_usuario, email_usuario, telefone_usuario FROM usuarios";
 
-        echo "<h1 class='h1'> Lista de Usuários </h1>";
-
-        $stmt = mysqli_prepare($conn, $sql_usuarios);
-        mysqli_stmt_execute($stmt);
-        $result = mysqli_stmt_get_result($stmt);
-        while ($dado = mysqli_fetch_assoc($result)) {
+    <div class="dashboard-container">
+        <?php
+try {
+    $sql_usuarios = "SELECT nome_funcionario, nome_usuario, email_usuario, telefone_usuario FROM usuarios";
+    
+    echo "<h1 class='h1'> Lista de Usuários </h1>";
+    
+    $stmt = $conn->prepare($sql_usuarios);
+    $stmt->execute();
+    
+    $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    
+    foreach ($usuarios as $dado) {
         echo "<ul class='list-group mb-3'>";
-        echo "<li class='list-group-item'> Nome Funcionário: " . $dado['nome_funcionario'] . "</li>";
-        echo "<li class='list-group-item'> Nome Usuário: " . $dado['nome_usuario'] . "</li>";
-        echo "<li class='list-group-item'> Email: " . $dado['email_usuario']. "</li>";
-        echo "<li class='list-group-item'> Telefone: " . $dado['telefone_usuario']. "</li>";
+        echo "<li class='list-group-item'> Nome Funcionário: " . htmlspecialchars($dado['nome_funcionario']) . "</li>";
+        echo "<li class='list-group-item'> Nome Usuário: " . htmlspecialchars($dado['nome_usuario']) . "</li>";
+        echo "<li class='list-group-item'> Email: " . htmlspecialchars($dado['email_usuario']) . "</li>";
+        echo "<li class='list-group-item'> Telefone: " . htmlspecialchars($dado['telefone_usuario']) . "</li>";
         echo "</ul>";
+    }
+    
+} catch (PDOException $e) {
+    echo "<p class='text-danger'>Erro ao carregar usuários: " . $e->getMessage() . "</p>";
 }
 ?>
+    </div>
+
 
     
 

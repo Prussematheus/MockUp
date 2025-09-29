@@ -1,3 +1,28 @@
+    <?php
+        session_start();
+        include("../includes/painel_completo.php");
+        include("../includes/conexao.php");
+        include("../src/Auth.php");
+        include("../src/User.php");
+
+        $auth = new Auth();
+        $user = new User($conn);
+
+        $currentUser = $user->getUserById($_SESSION['user_id']);
+
+
+        if (isset($_GET['logout'])) {
+            session_destroy();
+            header("Location: index.php");
+            exit;
+        } elseif (!$auth->isLoggedIn()) {
+        header("Location: login.php");
+        exit();
+        }
+        
+        $msg = "";
+    ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,26 +35,6 @@
     <script src="../javascript/script.js"></script>
 
 </head>
-
-    <?php
-
-        session_start();
-
-        if (isset($_GET['logout'])) {
-            session_destroy();
-            header("Location: index.php");
-            exit;
-        } elseif (empty($_SESSION["user_id"])) {
-            header("Location: index.php");
-            exit;
-        }
-
-         include("painel_completo.php");
-        
-
-        $msg = "";
-
-    ?>
 
 <body>
 

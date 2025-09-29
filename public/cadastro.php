@@ -1,3 +1,45 @@
+<?php
+        session_start();
+        include("../includes/painel_completo.php");
+        include("../includes/conexao.php");
+        include("../src/Auth.php");
+        include("../src/User.php");
+
+        $auth = new Auth();
+        $user = new User($conn);
+
+        $currentUser = $user->getUserById($_SESSION['user_id']);
+
+
+        if (isset($_GET['logout'])) {
+            session_destroy();
+            header("Location: index.php");
+            exit;
+        } elseif (!$auth->isLoggedIn()) {
+        header("Location: login.php");
+        exit();
+        }
+
+        $msg = "";
+
+if($_SERVER['REQUEST_METHOD'] == "POST"){
+
+    $user = new User($conn);
+
+    $administrador = isset($_POST['administrador']) ? 1 : 0;
+    
+    $user->register(
+        $_POST['nome_funcionario'],
+        $_POST['nome_usuario'],
+        $_POST['email_usuario'],
+        $_POST['senha'],
+        $_POST['telefone_usuario'],
+        $_POST['cpf_usuario'],
+        $administrador
+    );
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,55 +51,6 @@
     <script src="../javascript/script.js"></script>
 </head>
 <body>
-
-<?php
-
-    include("conexao.php");
-
-        session_start();
-
-        if (isset($_GET['logout'])) {
-            session_destroy();
-            header("Location: index.php");
-            exit;
-        } elseif (empty($_SESSION["user_id"])) {
-            header("Location: index.php");
-            exit;
-        }
-
-         include("painel_completo.php");
-        
-
-        $msg = "";
-
-if($_SERVER["REQUEST_METHOD"] == "POST") {
-
-    $nome_funcionario = $_POST["nome_funcionario"];
-    $nome_usuario = $_POST["nome_usuario"];
-    $email_usuario = $_POST["enderecoEmail"];
-    $senha_usuario = $_POST["senha"];
-    $telefone_usuario = $_POST["telefone_usuario"];
-    $cpf_usuario = $_POST["cpf_usuario"];
-    
-
-    $sql = "INSERT INTO usuarios(nome_funcionario, nome_usuario, email_usuario, senha_usuario, telefone_usuario, cpf_usuario) VALUES(?, ?, ?, ?, ?, ?)";
-    
-    $stmt = mysqli_prepare($conn, $sql);
-    
-    if($stmt) {
-        mysqli_stmt_bind_param($stmt, "ssssss", $nome_funcionario, $nome_usuario, $email_usuario, $senha_usuario, $telefone_usuario, $cpf_usuario);
-        
-        if(mysqli_stmt_execute($stmt)) {
-            echo "Funcionário cadastrado com sucesso!";
-        } else {
-            echo "Erro ao cadastrar: " . mysqli_error($conn);  
-        }
-        mysqli_stmt_close($stmt);
-    } else {
-        echo "Erro na preparação da query: " . mysqli_error($conn);
-    }
-}
-?>
 
     <header>
 
@@ -98,8 +91,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                     <input type="text" name="nome_usuario" placeholder="Nome de usuário" required>
                 </div> 
                 <div class="form-group">
-                    <label for="enderecoEmail"></label>
-                    <input type="email" name="enderecoEmail" placeholder="E-mail" required>
+                    <label for="email_usuario"></label>
+                    <input type="email" name="email_usuario" placeholder="E-mail" required>
                 </div>
                 <div class="form-group">
                     <label for="senha"></label>
@@ -112,6 +105,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="form-group">
                     <label for="cpf_usuario"></label>
                     <input type="text" name="cpf_usuario" placeholder="CPF" required>
+                </div> 
+                <div class="form-group">
+                    <label for="administrador">Admnistrador</label>
+                    <input type="checkbox" id="administrador" name="administrador" value="1">
                 </div>    
             </div>
             <button type="submit" class="btn">Cadastrar</button>

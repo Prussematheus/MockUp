@@ -1,3 +1,28 @@
+    <?php
+        session_start();
+        include("../includes/painel_completo.php");
+        include("../includes/conexao.php");
+        include("../src/Auth.php");
+        include("../src/User.php");
+
+        $auth = new Auth();
+        $user = new User($conn);
+
+        $currentUser = $user->getUserById($_SESSION['user_id']);
+
+
+        if (isset($_GET['logout'])) {
+            session_destroy();
+            header("Location: index.php");
+            exit;
+        } elseif (!$auth->isLoggedIn()) {
+        header("Location: login.php");
+        exit();
+        }
+        
+        $msg = "";
+    ?>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,27 +32,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-
-   <?php
-
-        session_start();
-
-        if (isset($_GET['logout'])) {
-            session_destroy();
-            header("Location: index.php");
-            exit;
-        } elseif (empty($_SESSION["user_id"])) {
-            header("Location: index.php");
-            exit;
-        }
-
-         include("painel_completo.php");
-        
-
-        $msg = "";
-
-    ?>
-
 
 <header>
 

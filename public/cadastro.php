@@ -25,18 +25,43 @@
 if($_SERVER['REQUEST_METHOD'] == "POST"){
 
     $user = new User($conn);
-
     $administrador = isset($_POST['administrador']) ? 1 : 0;
     
-    $user->register(
+    $dadosEndereco = [];
+    if (!empty($_POST['cep'])) {
+        try {
+            $dadosEndereco = $user->validarCEP($_POST['cep']);
+            $msg .= "CEP validado com sucesso! ";
+            
+        } catch (Exception $e) {
+            $msg = "Erro no CEP: " . $e->getMessage();
+        }
+    }
+    $result = $user->register(
         $_POST['nome_funcionario'],
         $_POST['nome_usuario'],
         $_POST['email_usuario'],
         $_POST['senha'],
         $_POST['telefone_usuario'],
         $_POST['cpf_usuario'],
-        $administrador
+        $administrador,
+        $_POST['cep'] ?? '',
+        $dadosEndereco['logradouro'] ?? '',
+        $dadosEndereco['bairro'] ?? '',
+        $dadosEndereco['cidade'] ?? '',
+        $dadosEndereco['uf'] ?? ''
     );
+    
+    if ($result) {
+        $msg .= "Usuário cadastrado com sucesso!";
+    } else {
+        $msg = "Erro ao cadastrar usuário!";
+    }
+}
+
+// Exibe a mensagem para o usuário
+if (!empty($msg)) {
+    echo "<div class='alert'>$msg</div>";
 }
 ?>
 
@@ -106,6 +131,31 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
                     <label for="cpf_usuario"></label>
                     <input type="text" name="cpf_usuario" placeholder="CPF" required>
                 </div> 
+                <div class="form-group">
+                    <label for="cep">CEP</label>
+                    <input type="text" id="cep" name="cep" maxlength="9" 
+                        onblur="consultarCEP()" placeholder="00000-000">
+                    <small class="cep-status"></small>
+                </div>
+                <div class="form-group">
+                    <label for="logradouro"></label>
+                    <input type="text" id="logradouro" name="logradouro" placeholder="Logradouro" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="bairro"></label>
+                    <input type="text" id="bairro" name="bairro" placeholder="Bairro" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="cidade"></label>
+                    <input type="text" id="cidade" name="cidade" placeholder="Cidade" required readonly>
+                </div>
+
+                <div class="form-group">
+                    <label for="uf"></label>
+                    <input type="text" id="uf" name="uf" placeholder="UF" required readonly>
+                </div>
                 <div class="form-group">
                     <label for="administrador">Admnistrador</label>
                     <input type="checkbox" id="administrador" name="administrador" value="1">

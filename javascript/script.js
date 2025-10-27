@@ -163,3 +163,77 @@ function visualizarMapa(){
 function redirecionar_usuario() {
     window.location.href = 'tela_usuario.php';
 }
+
+async function consultarCEP() {
+    const cep = document.getElementById('cep').value.replace(/\D/g, '');
+    const statusElement = document.querySelector('.cep-status');
+    
+    if (cep.length !== 8) {
+        statusElement.textContent = 'CEP deve ter 8 dígitos';
+        statusElement.style.color = 'red';
+        return;
+    }
+
+    statusElement.textContent = 'Consultando...';
+    statusElement.style.color = 'blue';
+
+    try {
+        // Tenta ViaCEP primeiro
+        const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+        const data = await response.json();
+
+        if (data.erro) {
+            // Fallback para BrasilAPI
+            await consultarBrasilAPI(cep);
+        } else {
+            preencherCampos(data);
+            statusElement.textContent = '✓ CEP válido';
+            statusElement.style.color = 'green';
+        }
+    } catch (error) {
+        await consultarBrasilAPI(cep);
+    }
+}
+
+async function consultarBrasilAPI(cep) {
+    const statusElement = document.querySelector('.cep-status');
+    
+    try {
+        const response = await fetch(`https://brasilapi.com.br/api/cep/v1/${cep}`);
+        const data = await response.json();
+        
+        if (data.errors) {
+            throw new Error('CEP não encontrado');
+        }
+        
+        // Adapta formato BrasilAPI para ViaCEP
+        const dadosAdaptados = {
+            logradouro: data.street,
+            bairro: data.neighborhood,
+            localidade: data.city,
+            uf: data.state
+        };
+        
+        preencherCampos(dadosAdaptados);
+        statusElement.textContent = '✓ CEP válido (BrasilAPI)';
+        statusElement.style.color = 'green';
+    } catch (error) {
+        statusElement.textContent = '❌ CEP não encontrado';
+        statusElement.style.color = 'red';
+        limparCampos();
+    }
+}
+
+function preencherCampos(dados) {
+    document.getElementById('logradouro').value = dados.logradouro || '';
+    document.getElementById('bairro').value = dados.bairro || '';
+    document.getElementById('cidade').value = dados.localidade || '';
+    document.getElementById('uf').value = dados.uf || '';
+}
+
+function limparCampos() {
+    document.getElementById('logradouro').value = '';
+    document.getElementById('bairro').value = '';
+    document.getElementById('cidade').value = '';
+    document.getElementById('uf').value = '';
+}

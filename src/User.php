@@ -7,10 +7,36 @@ class User {
         $this-> conn = $db;
     }
 
-   public function register($nome_funcionario, $nome_usuario, $email, $password, $telefone, $cpf, $administrador = 0){
+        public function validarCEP($cep) {
+        $cepValidator = new CEPValidator();
+        return $cepValidator->validarCEP($cep);
+    }
+
+ public function register(
+    $nome_funcionario, 
+    $nome_usuario, 
+    $email, 
+    $password, 
+    $telefone, 
+    $cpf, 
+    $administrador = 0,
+    $cep = '',
+    $logradouro = '', 
+    $bairro = '', 
+    $cidade = '', 
+    $uf = ''
+) {
     $hash = password_hash($password, PASSWORD_DEFAULT);
-    $sql = "INSERT INTO usuarios (nome_funcionario, nome_usuario, email_usuario, senha_usuario, telefone_usuario, cpf_usuario, administrador) 
-            VALUES (:nome_funcionario, :nome_usuario, :email, :senha, :telefone, :cpf, :administrador)";
+    
+    $sql = "INSERT INTO usuarios 
+            (nome_funcionario, nome_usuario, email_usuario, senha_usuario, 
+             telefone_usuario, cpf_usuario, administrador,
+             cep, logradouro, bairro, cidade, uf) 
+            VALUES 
+            (:nome_funcionario, :nome_usuario, :email, :senha, 
+             :telefone, :cpf, :administrador,
+             :cep, :logradouro, :bairro, :cidade, :uf)";
+    
     $stmt = $this->conn->prepare($sql);
     $stmt->bindParam(':nome_funcionario', $nome_funcionario);
     $stmt->bindParam(':nome_usuario', $nome_usuario);
@@ -19,21 +45,28 @@ class User {
     $stmt->bindParam(':telefone', $telefone);
     $stmt->bindParam(':cpf', $cpf);
     $stmt->bindParam(':administrador', $administrador, PDO::PARAM_INT);
+    $stmt->bindParam(':cep', $cep);
+    $stmt->bindParam(':logradouro', $logradouro);
+    $stmt->bindParam(':bairro', $bairro);
+    $stmt->bindParam(':cidade', $cidade);
+    $stmt->bindParam(':uf', $uf);
+    
     return $stmt->execute();
 }
-
-    public function login($email,$password){
+public function login($email,$password){
         $sql = "SELECT * FROM usuarios WHERE email_usuario = :email";
         $stmt = $this -> conn->prepare($sql);
         $stmt ->bindParam(':email', $email);
         $stmt ->execute();
         $user = $stmt -> fetch(PDO::FETCH_ASSOC);
 
+
         if($user && password_verify($password, $user['senha_usuario'])){
             return $user;
         }
         return false;
     }
+
 
     public function getUserById($userId){
         $sql = "SELECT * FROM usuarios WHERE id_usuario = :id";
@@ -50,8 +83,97 @@ class User {
         $stmt ->bindParam(':id', $userId);
         return $stmt -> execute();
     }
+}
 
+    class CEPValidator {
+    private $apiTimeout = 5;
+    
+    public function validarCEP($cep) {
+        $cep = preg_replace('/\D/', '', $cep);
+        
+        if (strlen($cep) !== 8) {
+            throw new Exception('CEP deve conter 8 dígitos');
+        }
+        
+        // Tenta ViaCEP primeiro
+        $dados = $this->consultarViaCEP($cep);
+        if (!$dados) {
+            // Fallback para BrasilAPI
+            $dados = $this->consultarBrasilAPI($cep);
+        }
+        
+        if (!$dados) {
+            throw new Exception('CEP não encontrado');
+        }
+        
+        return [
+            'cep' => $cep,
+            'logradouro' => $dados['logradouro'] ?? '',
+            'bairro' => $dados['bairro'] ?? '',
+            'cidade' => $dados['localidade'] ?? $dados['city'] ?? '',
+            'uf' => $dados['uf'] ?? $dados['state'] ?? '',
+            'api_utilizada' => $dados['api_utilizada'] ?? 'viacep',
+            'timestamp_consulta' => date('Y-m-d H:i:s'),
+            'status' => 'sucesso'
+        ];
+    }
+    
+    private function consultarViaCEP($cep) {
+        try {
+            $ch = curl_init();
+            curl_setopt_array($ch, [
+                CURLOPT_URL => "https://viacep.com.br/ws/{$cep}/json/",
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_TIMEOUT => $this->apiTimeout,
+                CURLOPT_SSL_VERIFYPEER => false
+            ]);
+            
+            $response = curl_exec($ch);
+            $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+            curl_close($ch);
+            
+            if ($httpCode === 200 && $response) {
+                $data = json_decode($response, true);
+                if (!isset($data['erro'])) {
+                    $data['api_utilizada'] = 'viacep';
+                    return $data;
+                }
+            }
+        } catch (Exception $e) {
 
+        }
+        
+        return null;
+    }
+    
+    private function consultarBrasilAPI($cep) {
+        try {
+            $ch = curl_init();
+            curl_setopt_array($ch, [
+                CURLOPT_URL => "https://brasilapi.com.br/api/cep/v1/{$cep}",
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_TIMEOUT => $this->apiTimeout,
+                CURLOPT_SSL_VERIFYPEER => false
+            ]);
+            
+            $response = curl_exec($ch);
+            $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+            curl_close($ch);
+            
+            if ($httpCode === 200 && $response) {
+                $data = json_decode($response, true);
+                if (!isset($data['errors'])) {
+                    $data['api_utilizada'] = 'brasilapi';
+                    return $data;
+                }
+            }
+        } catch (Exception $e) {
+            // Log do erro
+            error_log("Erro BrasilAPI: " . $e->getMessage());
+        }
+        
+        return null;
+    }
 }
 
 ?>

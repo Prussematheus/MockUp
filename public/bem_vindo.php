@@ -82,13 +82,6 @@
             </button>
         </a>
 
-        <a style="text-decoration: none;" href="../public/gestao_rotas.php">
-            <button class="opcao">
-                <i class="fas fa-map-marker-alt fa-2x" style="color: #ffffff;"></i>
-                <p class="nomeOpcao">Gerenciar as Rotas</p>
-            </button>
-        </a>
-
         <a style="text-decoration: none;" href="../public/reportar_problema.php"> <!--Ainda não fizemos essa página-->
             <button class="opcao">
                 <i class="fas fa-star fa-2x" style="color: #ffffff;"></i>

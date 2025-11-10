@@ -16,6 +16,7 @@ class User {
     $nome_funcionario, 
     $nome_usuario, 
     $email, 
+    $data_nascimento,
     $password, 
     $telefone, 
     $cpf, 
@@ -25,18 +26,17 @@ class User {
     $bairro = '', 
     $cidade = '', 
     $uf = '',
-    $data_nascimento
 ) {
     $hash = password_hash($password, PASSWORD_DEFAULT);
     
     $sql = "INSERT INTO usuarios 
             (nome_funcionario, nome_usuario, email_usuario, data_nascimento, senha_usuario, 
              telefone_usuario, cpf_usuario, administrador,
-             cep, logradouro, bairro, cidade, uf) 
+             cep_usuario, logradouro_usuario, bairro_usuario, cidade_usuario, uf_usuario) 
             VALUES 
             (:nome_funcionario, :nome_usuario, :email, :data_nascimento, :senha, 
              :telefone, :cpf, :administrador,
-             :cep, :logradouro, :bairro, :cidade, :uf)";
+             :cep_usuario, :logradouro_usuario, :bairro_usuario, :cidade_usuario, :uf_usuario)";
     
     $stmt = $this->conn->prepare($sql);
     $stmt->bindParam(':nome_funcionario', $nome_funcionario);
@@ -47,11 +47,11 @@ class User {
     $stmt->bindParam(':telefone', $telefone);
     $stmt->bindParam(':cpf', $cpf);
     $stmt->bindParam(':administrador', $administrador, PDO::PARAM_INT);
-    $stmt->bindParam(':cep', $cep);
-    $stmt->bindParam(':logradouro', $logradouro);
-    $stmt->bindParam(':bairro', $bairro);
-    $stmt->bindParam(':cidade', $cidade);
-    $stmt->bindParam(':uf', $uf);
+    $stmt->bindParam(':cep_usuario', $cep);
+    $stmt->bindParam(':logradouro_usuario', $logradouro);
+    $stmt->bindParam(':bairro_usuario', $bairro);
+    $stmt->bindParam(':cidade_usuario', $cidade);
+    $stmt->bindParam(':uf_usuario', $uf);
    
     return $stmt->execute();
 }

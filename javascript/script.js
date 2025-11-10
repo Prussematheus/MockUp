@@ -54,53 +54,6 @@ if (email.value !== '') {
     }
 }
 
-if (!validadataNascimento()) {
-    valid = false;
-}
-
-function validadataNascimento() {
-    var dataNascimento = document.getElementById("dataNascimento").value;
-    if (!dataNascimento) {
-        alert('Por favor, preencha a data de nascimento');
-        return false;
-    }
-
-    dataNascimento = dataNascimento.replace(/\//g, "-"); 
-    var dataNascimento_array = dataNascimento.split("-"); 
-            
-    if(dataNascimento_array[0].length != 4){
-       dataNascimento = dataNascimento_array[2]+"-"+dataNascimento_array[1]+"-"+dataNascimento_array[0]; 
-    }
-
-    var hoje = new Date();
-    var nasc  = new Date(dataNascimento);
-    var idade = hoje.getFullYear() - nasc.getFullYear();
-    var m = hoje.getMonth() - nasc.getMonth();
-    if (m < 0 || (m === 0 && hoje.getDate() < nasc.getDate())) idade--;
-    
-    if(idade < 18){
-       alert("Insira uma data válida (maior que 18 anos).");
-       return false;
-    }
-    
-    return true;
-}
-
-// Função para validar a tela de login
-
-function login(){
-
-    var login = document.getElementById('enderecoEmail').value;
-    var senha = document.getElementById('senha').value;
-    
-    if(login == "admin@gmail.com" && senha == "admin"){
-        alert('Sucesso');
-        location.href = 'bem_vindo.php'
-    } else {
-        alert('Usuário ou senha incorretos');
-    }
-}
-
 // Funções de redirecionamento de página
 
 function gerir_rota_um(){

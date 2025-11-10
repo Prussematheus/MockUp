@@ -10,30 +10,6 @@
 </head>
 
 <body>
-        <div class="notificacao-painel"> <!--Div do painel de notificações (inicialmente oculto)-->
-        <div class="notificacao-cabecalho">
-            <h4>Notificações</h4>
-            <button class="fechar-notificacao">&times;</button> <!--Botão para fechar o painel de notificações.-->
-        </div>
-        <div class="notificacao-lista">
-            <div class="notificacao-item"> <!--Define os itens (notificações) do painel-->
-                <i class="fas fa-train"></i>
-                <div>
-                    <p>Trem #1245 atrasado em 15 minutos</p>
-                    <small>Há 2 horas</small>
-                </div>
-            </div>
-            <div class="notificacao-item">
-                <i class="fas fa-exclamation-triangle"></i>
-                <div>
-                    <p>Manutenção programada para a linha 3</p>
-                    <small>Ontem, 14:30</small>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
     <div class="menu-painel"> <!--Painel do menu (inicalmente oculto)-->
         <div class="menu-cabecalho">
             <button class="fechar-menu">&times;</button> <!--Botão para fechar o menu-->
@@ -52,14 +28,6 @@
                     <i class="fas fa-chart-line" style="color: #004aad;"></i>
                     <div>
                         <p>Dashboard Geral</p>
-                    </div>
-                </div>
-            </a>
-            <a href="../public/gestao_rotas.php" class="menu-item-link">
-                <div class="menu-item">
-                    <i class="fas fa-map-marker-alt" style="color: #004aad;"></i>
-                    <div>
-                        <p>Gestão de Rotas</p>
                     </div>
                 </div>
             </a>

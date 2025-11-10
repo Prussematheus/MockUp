@@ -95,7 +95,7 @@
 
         <a style="text-decoration: none;" href="../public/cadastro.php"> <!--Ainda não fizemos essa página-->
             <button class="opcao">
-                <i class="fas fa-file fa-2x" style="color: #ffffff;"></i>
+                <i class="fas fa-user-plus fa-2x" style="color: #ffffff;"></i>
                 <p class="nomeOpcao">Cadastrar novo funcionário</p>
             </button>
         </a>

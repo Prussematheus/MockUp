@@ -15,9 +15,9 @@ CREATE TABLE usuarios(
 
 
 INSERT INTO usuarios (nome_funcionario, nome_usuario, email_usuario, senha_usuario, telefone_usuario, cpf_usuario, administrador) VALUES
-('Lucas Kormann', 'LucasK', 'lucasK@gmail.com', '12345', '(47) 99919-3898', '131.115.069-24', '1'),
-('Ana Clara', 'AnaC', 'AnaC@email.com', '54321', '(47) 98888-7777', '222.222.222-22', '0'),
-('João Silva', 'JoaoS', 'JoaoS@email.com', '09876', '(47) 97777-6666', '333.333.333-33', '0');
+('Lucas Kormann', 'LucasK', 'lucasK@gmail.com', '$2y$10$MYYCwQ3hyfmhV2ZhLSl1f.OLGaR2J2IOjYfrShvbopa7TBV/VoKPG', '(47) 99919-3898', '131.115.069-24', '1'),
+('Ana Clara', 'AnaC', 'AnaC@email.com', '$2y$10$7fGijqzOe328WaanS3AbwudIwvN//CamtcPtCDw7H8k5kxFf9ssCy', '(47) 98888-7777', '222.222.222-22', '0'),
+('João Silva', 'JoaoS', 'JoaoS@email.com', '$2y$10$FijYl7Y6QtWaUohQNqSDDOhgVd6immtlWWOdAsP1XNfhavMtPZVa.', '(47) 97777-6666', '333.333.333-33', '0');
 
 CREATE TABLE sensores(
   id_sensor INT NOT NULL PRIMARY KEY AUTO_INCREMENT,

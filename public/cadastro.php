@@ -41,6 +41,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         $_POST['nome_funcionario'],
         $_POST['nome_usuario'],
         $_POST['email_usuario'],
+        $_POST['data_nascimento'],
         $_POST['senha'],
         $_POST['telefone_usuario'],
         $_POST['cpf_usuario'],
@@ -118,6 +119,10 @@ if (!empty($msg)) {
                 <div class="form-group">
                     <label for="email_usuario"></label>
                     <input type="email" name="email_usuario" placeholder="E-mail" required>
+                </div>
+                <div class="form-group">
+                    <label for="data_nascimento"></label>
+                    <input type="date" name="data_nascimento" required>
                 </div>
                 <div class="form-group">
                     <label for="senha"></label>

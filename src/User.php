@@ -24,16 +24,17 @@ class User {
     $logradouro = '', 
     $bairro = '', 
     $cidade = '', 
-    $uf = ''
+    $uf = '',
+    $data_nascimento
 ) {
     $hash = password_hash($password, PASSWORD_DEFAULT);
     
     $sql = "INSERT INTO usuarios 
-            (nome_funcionario, nome_usuario, email_usuario, senha_usuario, 
+            (nome_funcionario, nome_usuario, email_usuario, data_nascimento, senha_usuario, 
              telefone_usuario, cpf_usuario, administrador,
              cep, logradouro, bairro, cidade, uf) 
             VALUES 
-            (:nome_funcionario, :nome_usuario, :email, :senha, 
+            (:nome_funcionario, :nome_usuario, :email, :data_nascimento, :senha, 
              :telefone, :cpf, :administrador,
              :cep, :logradouro, :bairro, :cidade, :uf)";
     
@@ -41,6 +42,7 @@ class User {
     $stmt->bindParam(':nome_funcionario', $nome_funcionario);
     $stmt->bindParam(':nome_usuario', $nome_usuario);
     $stmt->bindParam(':email', $email);
+    $stmt->bindParam(':data_nascimento', $data_nascimento);
     $stmt->bindParam(':senha', $hash);
     $stmt->bindParam(':telefone', $telefone);
     $stmt->bindParam(':cpf', $cpf);
@@ -50,7 +52,7 @@ class User {
     $stmt->bindParam(':bairro', $bairro);
     $stmt->bindParam(':cidade', $cidade);
     $stmt->bindParam(':uf', $uf);
-    
+   
     return $stmt->execute();
 }
 public function login($email,$password){

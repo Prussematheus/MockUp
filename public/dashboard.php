@@ -51,8 +51,8 @@
                 <i class="fas fa-bars fa-2x" style="color: white;"></i>
             </button>
             <h3 class="titulo" style="color: white;">Sistema Ferroviário </h3>
-            <button class="notificacao">
-                <i class="fas fa-bell fa-2x" style="color: white;"></i>
+        
+                
             </button>
             <button class="perfil" onclick="redirecionar_usuario()">
                 <i class="fas fa-user-circle fa-3x" style="color: white;"></i>

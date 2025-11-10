@@ -86,8 +86,7 @@ if (!empty($msg)) {
                 <i class="fas fa-bars fa-2x" style="color: white;"></i>
             </button>
             <h3 class="titulo">Sistema Ferroviário</h3>
-            <button class="notificacao">
-                <i class="fas fa-bell fa-2x" style="color: white;"></i>
+   
             </button>
             <a class="perfil" href="../public/tela_usuario.php"> <!--Redireciona o usuário para a tela de personalização de informações-->
                 <i class="fas fa-user-circle fa-3x" style="color: white;"></i>

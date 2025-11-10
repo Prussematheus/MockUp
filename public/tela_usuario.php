@@ -53,6 +53,10 @@ $msg = "";
 
     <div class="espacamento"></div>
 
+    <img src="../uploads/<?php echo htmlspecialchars($currentUser['foto_perfil']); ?>" alt="Foto de Perfil" style="width: 150px; height: 150px; border-radius:50%;">
+
+    <a href=upload_foto.php class="btn-editar-perfil">Editar Foto de Perfil</a>
+
     <div class="form-section">
         <h2>Dados da Conta</h2>
         

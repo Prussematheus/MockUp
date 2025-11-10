@@ -16,7 +16,8 @@ CREATE TABLE usuarios(
   logradouro_usuario VARCHAR(255) NOT NULL,
   bairro_usuario VARCHAR(255) NOT NULL,
   cidade_usuario VARCHAR(255) NOT NULL,
-  uf_usuario VARCHAR(255) NOT NULL
+  uf_usuario VARCHAR(255) NOT NULL,
+  foto_perfil VARCHAR(255) DEFAULT 'default.jpg'
 );
 
 CREATE TABLE relatorios (

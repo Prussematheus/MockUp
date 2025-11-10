@@ -75,7 +75,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES["foto_perfil"])){
         <button type="submit">Upload</button>
 
         <br>
-        <a href="index.php">Home</a>
+        <a href="tela_usuario.php">Voltar</a>
     </form>
 
 </body>

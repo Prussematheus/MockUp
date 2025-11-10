@@ -26,25 +26,29 @@ $msg = "";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tela de Usuário</title>
+    <title>Bem Vindo</title>
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> <!--Utilização do Fontawesome para ícones no trabalho-->
     <script src="../javascript/script.js"></script>
 </head>
 
 <body>
+
     <header>
+
+
         <div id="header">
-            <button class="menu">
+            <button class="menu"> <!--Botão de menu-->
                 <i class="fas fa-bars fa-2x" style="color: white;"></i>
             </button>
-            <h3 class="titulo">Sistema Ferroviário</h3>
-
+            <h3 class="titulo">Sistema Ferroviário </h3>
             </button>
-            <button class="perfil" onclick="redirecionar_usuario()">
+            <a class="perfil" href="../public/tela_usuario.php"> <!--Redireciona o usuário para a tela de personalização de informações-->
                 <i class="fas fa-user-circle fa-3x" style="color: white;"></i>
-            </button>
+            </a>
         </div>
+
+
     </header>
 
     <div class="espacamento"></div>

@@ -19,9 +19,14 @@ CREATE TABLE usuarios(
   uf_usuario VARCHAR(255) NOT NULL
 );
 
-
-INSERT INTO usuarios (nome_funcionario, nome_usuario, email_usuario, data_nascimento, senha_usuario, telefone_usuario, cpf_usuario, administrador, cep_usuario, logradouro_usuario, bairro_usuario, cidade_usuario, uf_usuario) VALUES
-('Lucas Kormann', 'LucasK', 'lucasK@gmail.com', '2007/09/23', '$2y$10$MYYCwQ3hyfmhV2ZhLSl1f.OLGaR2J2IOjYfrShvbopa7TBV/VoKPG', '(47) 99919-3898', '131.115.069-24', '1', '89201-266', 'Rua Orestes Guimarães', 'Centro', 'Joinville', 'SC');
+CREATE TABLE relatorios (
+    id INT(11) AUTO_INCREMENT PRIMARY KEY,
+    titulo VARCHAR(255) NOT NULL,
+    conteudo TEXT NOT NULL,
+    data_relatorio DATETIME NOT NULL,
+    usuario VARCHAR(100) NOT NULL,
+    data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
 
 CREATE TABLE sensores(
   id_sensor INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -37,6 +42,9 @@ CREATE TABLE sensores_data(
   data_sensor DATETIME DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY (id_sensor) REFERENCES sensores(id_sensor)
 );
+
+INSERT INTO usuarios (nome_funcionario, nome_usuario, email_usuario, data_nascimento, senha_usuario, telefone_usuario, cpf_usuario, administrador, cep_usuario, logradouro_usuario, bairro_usuario, cidade_usuario, uf_usuario) VALUES
+('Lucas Kormann', 'LucasK', 'lucasK@gmail.com', '2007/09/23', '$2y$10$MYYCwQ3hyfmhV2ZhLSl1f.OLGaR2J2IOjYfrShvbopa7TBV/VoKPG', '(47) 99919-3898', '131.115.069-24', '1', '89201-266', 'Rua Orestes Guimarães', 'Centro', 'Joinville', 'SC');
 
 INSERT INTO sensores (tipo_sensor, descricao_sensor, status_sensor) VALUES
 ('Temperatura', 'Sensor de temperatura para monitorar a temperatura ambiente', 'Ativo'),

@@ -10,14 +10,15 @@ CREATE TABLE usuarios(
   senha_usuario VARCHAR(255) NOT NULL,
   telefone_usuario VARCHAR(15) NOT NULL,
   cpf_usuario VARCHAR(14) NOT NULL UNIQUE,
-  administrador BOOLEAN NOT NULL DEFAULT FALSE
+  administrador BOOLEAN NOT NULL DEFAULT FALSE,
+  data_nascimento DATE NOT NULL
 );
 
 
-INSERT INTO usuarios (nome_funcionario, nome_usuario, email_usuario, senha_usuario, telefone_usuario, cpf_usuario, administrador) VALUES
-('Lucas Kormann', 'LucasK', 'lucasK@gmail.com', '$2y$10$MYYCwQ3hyfmhV2ZhLSl1f.OLGaR2J2IOjYfrShvbopa7TBV/VoKPG', '(47) 99919-3898', '131.115.069-24', '1'),
-('Ana Clara', 'AnaC', 'AnaC@email.com', '$2y$10$7fGijqzOe328WaanS3AbwudIwvN//CamtcPtCDw7H8k5kxFf9ssCy', '(47) 98888-7777', '222.222.222-22', '0'),
-('João Silva', 'JoaoS', 'JoaoS@email.com', '$2y$10$FijYl7Y6QtWaUohQNqSDDOhgVd6immtlWWOdAsP1XNfhavMtPZVa.', '(47) 97777-6666', '333.333.333-33', '0');
+INSERT INTO usuarios (nome_funcionario, nome_usuario, email_usuario, senha_usuario, telefone_usuario, cpf_usuario, administrador, data_nascimento) VALUES
+('Lucas Kormann', 'LucasK', 'lucasK@gmail.com', '$2y$10$MYYCwQ3hyfmhV2ZhLSl1f.OLGaR2J2IOjYfrShvbopa7TBV/VoKPG', '(47) 99919-3898', '131.115.069-24', '1', '2007/09/23'),
+('Ana Clara', 'AnaC', 'AnaC@email.com', '$2y$10$7fGijqzOe328WaanS3AbwudIwvN//CamtcPtCDw7H8k5kxFf9ssCy', '(47) 98888-7777', '222.222.222-22', '0', '2006/09/25'),
+('João Silva', 'JoaoS', 'JoaoS@email.com', '$2y$10$FijYl7Y6QtWaUohQNqSDDOhgVd6immtlWWOdAsP1XNfhavMtPZVa.', '(47) 97777-6666', '333.333.333-33', '0', '2004/05/21');
 
 CREATE TABLE sensores(
   id_sensor INT NOT NULL PRIMARY KEY AUTO_INCREMENT,

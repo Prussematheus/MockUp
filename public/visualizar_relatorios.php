@@ -21,6 +21,21 @@
         exit();
         }
 
+        try {
+    $sql_relatorios = "SELECT r.*, u.nome_funcionario 
+                       FROM relatorios r 
+                       INNER JOIN usuarios u ON r.autor_relatorio = u.id_usuario 
+                       ORDER BY r.data_relatorio DESC";
+    
+    $stmt = $conn->prepare($sql_relatorios);
+    $stmt->execute();
+    $relatorios = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    
+} catch (PDOException $e) {
+    $msg = "Erro ao carregar relatórios: " . $e->getMessage();
+    $relatorios = [];
+}
+
         $msg = "";
 
     ?>
@@ -35,10 +50,101 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> <!--Utilização do Fontawesome para ícones no trabalho-->
     <script src="../javascript/script.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color:rgb(255, 255, 255);
+            margin: 0;
+            padding: 0;
+        }
+        
+        .dashboard {
+            padding: 20px;
+        }
+     
+        .relatorios-container {
+            max-width: 1200px;
+            margin: 10px;
+            border: #004AAD 2px solid;
+        }
+        
+        .relatorio-card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-left: 4px solid #3498db;
+        }
+        
+        .relatorio-header {
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+            border-bottom: #004AAD 2px solid;
+        }
+        
+        .relatorio-header h3 {
+            margin: 5px;
+            border: 5px;
+            color:rgb(0, 0, 0);
+            flex: 1;
+        }
+        
+        .relatorio-date {
+            color: #7f8c8d;
+            font-size: 0.9em;
+            margin-right: 15px;
+        }
+
+        .conteudo-relatorio{
+            margin-left: 15px;
+        }
+        
+        .relatorio-content {
+            margin-bottom: 15px;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .relatorio-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9em;
+            color: #7f8c8d;
+            margin-left: 15px;
+        }
+        
+        .no-relatorios {
+            text-align: center;
+            padding: 40px;
+            color: #7f8c8d;
+            background: white;
+            border-radius: 8px;
+        }
+
+        .relatorio-author{
+            margin-bottom: 10px;
+        }
+        
+        button {
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        
+        a {
+            text-decoration: none;
+        }
+    </style>
 </head>
 
 <body>
-
     <header>
 
 
@@ -53,7 +159,6 @@
             </a>
         </div>
 
-
     </header>
     
     <div class="espacamento"></div>
@@ -62,36 +167,37 @@
         <h1>Visualizar Relatórios</h1>
     </div>
 
-    <div class="dashboard-container"> <!--Container para centralização-->
-        <div class="dashboard-fundo"> <!--Divs para estilização com cores de fundo e posicionamento-->
-            <button onclick="relatorio_um()" class="relatorio-rota">
-                <p class="rota">Ver relatório - Joinville: Sul - Zona Industrial</p> 
-            </button>
-           
-            </div>
+            <div class="relatorios-container">
+            <?php if (!empty($relatorios)): ?>
+                <?php foreach($relatorios as $relatorio): ?>
+                    <div class="relatorio-container">
+                        <div class="relatorio-header">
+                            <h3 style="color: black;"><?php echo htmlspecialchars($relatorio['nome_relatorio']); ?></h3>
+                            <span class="relatorio-date">
+                                <?php echo date('d/m/Y H:i', strtotime($relatorio['data_relatorio'])); ?>
+                            </span>
+                        </div>
+                        
+                        <div class="relatorio-content">
+                            <p class="conteudo-relatorio"><?php echo nl2br(htmlspecialchars($relatorio['conteudo_relatorio'])); ?></p>
+                        </div>
+                        
+                        <div class="relatorio-footer">
+                            <span class="relatorio-author">
+                                <i class="fas fa-user"></i>
+                                Autor: <?php echo htmlspecialchars($relatorio['nome_funcionario']); ?>
+                            </span>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <div class="no-relatorios">
+                    <i class="fas fa-file-alt fa-3x"></i>
+                    <p>Nenhum relatório encontrado.</p>
+                    <?php if (isset($msg)) echo "<p>Erro: $msg</p>"; ?>
+                </div>
+            <?php endif; ?>
         </div>
-    </div>
-
-    <div class="dashboard-container">
-        <div class="dashboard-fundo"> <!--Uso da mesma classe do dashboard, já que são páginas parecidas-->
-            <button onclick="relatorio_dois()" class="relatorio-rota">
-                <p class="rota">Ver relatório - Joinville: Norte - Sul</p>
-            </button>
-        </div>
-    </div>
-    
-
-    <div class="dashboard-container">
-        <div class="dashboard-fundo">
-            <button onclick="relatorio_tres()" class="relatorio-rota">
-                <p class="rota">Ver relatório - Joinville: Norte - Zona Leste</p>
-            </button>
-        </div>
-    </div>
-    
-
-    <div class="container"> <!--Botão de ver mais caso seja necessário-->
-        <button class="verMais">Ver Mais <i class="fas fa-chevron-down"></i></button> 
     </div>
 
     <footer class="fixarRodape">

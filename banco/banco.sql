@@ -20,13 +20,13 @@ CREATE TABLE usuarios(
   foto_perfil VARCHAR(255) DEFAULT 'default.jpg'
 );
 
-CREATE TABLE relatorios (
-    id INT(11) AUTO_INCREMENT PRIMARY KEY,
-    titulo VARCHAR(255) NOT NULL,
-    conteudo TEXT NOT NULL,
-    data_relatorio DATETIME NOT NULL,
-    usuario VARCHAR(100) NOT NULL,
-    data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+CREATE TABLE relatorios(
+  id_relatorio INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  nome_relatorio VARCHAR(255) NOT NULL,
+  conteudo_relatorio TEXT NOT NULL,
+  data_relatorio TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  autor_relatorio INT NOT NULL,
+  FOREIGN KEY (autor_relatorio) REFERENCES usuarios(id_usuario)
 );
 
 CREATE TABLE sensores(
@@ -59,3 +59,7 @@ INSERT INTO sensores_data (id_sensor, valor_sensor, data_sensor) VALUES
 (2, 50.0, '2024-06-01 11:00:00'),
 (3, 1013.25, '2024-06-01 10:00:00'),
 (3, 1012.80, '2024-06-01 11:00:00');
+
+INSERT INTO relatorios (nome_relatorio, conteudo_relatorio, autor_relatorio) 
+VALUES ('Relatório de Problema No Trem do Ferrorama', 'Este relatório apresenta um problema ocorrido no sensor do trem (S4), por favor corrigir o mais rápido possível.', 1);
+

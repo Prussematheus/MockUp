@@ -39,7 +39,7 @@ h1{
 .fixarRodape{
     background-color: #004aad;
     height: 60px;
-    margin: 0px;
+    margin-top: 20px;
     padding: 0px;
     border: 0px;
     bottom: 0;
@@ -73,8 +73,15 @@ h1{
 
     .form-group {
         margin-bottom: 20px;
+        text-align: center;
     }
     
+    .form-actions{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
     label {
         display: block;
         margin-bottom: 8px;
@@ -815,13 +822,34 @@ button:hover {
     margin-bottom: 10px;
 }
         
-button {
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-        
-a {
-    text-decoration: none;
+#nome_relatorio{
+    width: 400px;
 }
 
+#conteudo_relatorio{
+    width: 400px;
+    height: 250px;
+}
+
+.btn-voltar {
+    background: #004AAD;
+    margin-right: 10px;
+    margin-right: 10px;
+}
+
+.success {
+    background: #d4edda;
+    color: #155724;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    border: 2px solid #28a745;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(40, 167, 69, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}

@@ -67,6 +67,10 @@
             margin: 10px;
             border: #004AAD 2px solid;
         }
+
+        .relatorio-container{
+            border-bottom:rgb(52, 58, 66) 2px solid;
+        }
         
         .relatorio-card {
             background: white;
@@ -200,9 +204,11 @@
         </div>
     </div>
 
-    <footer class="fixarRodape">
-
-    </footer>
+    <div class="container">
+        <button type="button" onclick="window.location.href='enviar_relatorio.php'" class="btn">
+            <i class="fas fa-plus"></i> Enviar novo relatório
+        </button>
+    </div>
 
 </body>
 

@@ -55,8 +55,6 @@ $msg = "";
 
     <div class="fotoPerfil">
         <img src="../uploads/<?php echo htmlspecialchars($currentUser['foto_perfil']); ?>" alt="Foto de Perfil" style="width: 150px; height: 150px; border-radius:50%; margin-top:10px;">
-        <br>
-        <a href=upload_foto.php class="btn-editar-perfil">Editar Foto de Perfil</a>
     </div>
 
     <div class="form-section">

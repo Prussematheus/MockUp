@@ -120,9 +120,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
 
                 <div class="form-actions">
-                    <a href="tela_usuario.php" class="btn btn-secondary">
-                        <i class="fas fa-arrow-left"></i> Voltar
-                    </a>
+                    <a style="text-decoration: none;" href="tela_usuario.php"> <!--Ainda não fizemos essa página-->
+                        <button class="logout" style="margin-bottom: 0px; margin-top:60px; margin-right: 10px; width: 195px">
+                            <i class="fas fa-arrow-left" style="color:rgb(255, 255, 255);"></i>
+                            <p style="color: white;">Voltar</p>
+                        </button>
+                    </a> 
                     <button type="submit" class="btn btn-primary">
                         <i class="fas fa-save"></i> Salvar Alterações
                     </button>

@@ -153,6 +153,7 @@
             width: 50%;
             border-radius: 5%;
             height: 30px;
+            border: black 2px solid;
         }
 
         .relatorio-tipo{

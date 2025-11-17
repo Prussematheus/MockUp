@@ -134,6 +134,7 @@
 
         .relatorio-author{
             margin-bottom: 10px;
+            text-align: center;
         }
         
         button {
@@ -144,6 +145,14 @@
         
         a {
             text-decoration: none;
+        }
+
+        .delete{
+            background-color: red;
+            color: white;
+            width: 50%;
+            border-radius: 5%;
+            height: 30px;
         }
     </style>
 </head>
@@ -190,6 +199,7 @@
                             <span class="relatorio-author">
                                 <i class="fas fa-user"></i>
                                 Autor: <?php echo htmlspecialchars($relatorio['nome_funcionario']); ?>
+                                <?php echo "<button class='delete' onclick=\"if(confirm('Tem certeza?')) window.location.href='deletar_relatorio.php?id=" . $relatorio['id_relatorio'] . "'\">Excluir</button>"; ?>
                             </span>
                         </div>
                     </div>

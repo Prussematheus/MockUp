@@ -31,14 +31,6 @@
                     </div>
                 </div>
             </a>
-            <a href="../public/reportar_problema.php" class="menu-item-link"> 
-                <div class="menu-item">
-                    <i class="fas fa-star fa" style="color: #004aad;"></i>
-                    <div>
-                        <p>Reportar Problema</p>
-                    </div>
-                </div>
-            </a>
             <a href="../public/visualizar_relatorios.php" class="menu-item-link"> 
                 <div class="menu-item">
                     <i class="fas fa-file" style="color: #004aad;"></i>

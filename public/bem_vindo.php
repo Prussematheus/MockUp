@@ -69,42 +69,41 @@
 
     <div id="bemVindo">
         <h1>Bem vindo Usuário(a)</h1>
-        <h4>ao Sistema Ferroviário</h3>
+        <h3 class="boas-vindas">ao Sistema Ferroviário</h3>
             <i class="fas fa-train fa-5x"></i>
     </div>
-
+    <div class="container">
     <div class="opcoes"> <!--Lista de botões da página inicial-->
         <a style="text-decoration: none;" href="../public/dashboard.php">
             <button class="opcao">
-                <i class="fas fa-chart-line fa-2x" style="color: #ffffff;"></i>
+                <i class="fas fa-chart-line fa-2x" style="color: #004AAD;"></i>
                 <p class="nomeOpcao">Dashboard Geral</p>
-            </button>
-        </a>
-
-        <a style="text-decoration: none;" href="../public/reportar_problema.php"> <!--Ainda não fizemos essa página-->
-            <button class="opcao">
-                <i class="fas fa-star fa-2x" style="color: #ffffff;"></i>
-                <p class="nomeOpcao">Reportar Problema</p>
             </button>
         </a>
 
         <a style="text-decoration: none;" href="../public/visualizar_relatorios.php"> <!--Ainda não fizemos essa página-->
             <button class="opcao">
-                <i class="fas fa-file fa-2x" style="color: #ffffff;"></i>
+                <i class="fas fa-file fa-2x" style="color: #004AAD; margin-left: 10px"></i>
                 <p class="nomeOpcao">Relatórios e Análises</p>
             </button>
         </a>
 
         <a style="text-decoration: none;" href="../public/cadastro.php"> <!--Ainda não fizemos essa página-->
             <button class="opcao">
-                <i class="fas fa-user-plus fa-2x" style="color: #ffffff;"></i>
+                <i class="fas fa-user-plus fa-2x" style="color: #004AAD;"></i>
                 <p class="nomeOpcao">Cadastrar novo funcionário</p>
             </button>
         </a>
 
-    </div>
+        <a style="text-decoration: none;" href="?logout=1"> <!--Ainda não fizemos essa página-->
+            <button class="logout">
+                <i class="fas fa-sign-out-alt fa-2x" style="color:rgb(255, 255, 255);"></i>
+                <p style="color: white;">Sair</p>
+            </button>
+        </a>        
 
-    <p><a href="?logout=1">Sair</a></p>
+    </div>
+    </div>
 
     <footer class="fixarRodape">
 

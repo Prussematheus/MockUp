@@ -161,3 +161,31 @@ function limparCampos() {
     document.getElementById('cidade').value = '';
     document.getElementById('uf').value = '';
 }
+
+function confirmarDelete(idRelatorio) {
+    if (confirm('Tem certeza que deseja deletar este relatório?\nEsta ação não pode ser desfeita.')) {
+        window.location.href = 'deletar_relatorio.php?id=' + idRelatorio;
+    }
+}
+
+function confirmarDeleteModal(idRelatorio) {
+    const modal = document.getElementById('confirmModal');
+    const btnConfirm = document.getElementById('btnConfirmDelete');
+    const btnCancel = document.getElementById('btnCancelDelete');
+    
+    btnConfirm.onclick = function() {
+        window.location.href = 'deletar_relatorio.php?id=' + idRelatorio;
+    };
+    
+    btnCancel.onclick = function() {
+        modal.style.display = 'none';
+    };
+    
+    modal.style.display = 'block';
+    
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+    }
+}

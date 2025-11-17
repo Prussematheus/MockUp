@@ -195,17 +195,18 @@ h1{
    }
 
    .opcoes{
-    background-color: #d9d9d9;
-    height: 450px;
+    background-color: #ebe8e8;
+    height: 215px;
+    width: 200px;
     text-align: center;
     gap: 50px;
     padding: 30px;
     margin: 0px;
- 
+    border-radius: 10%;
    }
 
    .opcao {
-    background-color: #004aad;
+    background-color: #ffffff;
     height: 50px;
     width: 200px;
     display: flex;
@@ -214,11 +215,11 @@ h1{
     justify-content: center;
     gap: 10px;
     border-radius: 20px;
-    border: none;
+    border:#004AAD 1px solid
 }
 
    .nomeOpcao{
-    color: white;
+    color:#004AAD;
    }
 
    .menu{
@@ -852,4 +853,22 @@ button:hover {
     align-items: center;
     justify-content: center;
     gap: 10px;
+}
+
+.logout{
+    background-color: #004AAD;
+    height: 50px;
+    width: 200px;
+    display: flex;
+    margin:  0 auto 30px auto; 
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border-radius: 20px;
+    margin-top: 80px;
+}
+
+.boas-vindas{
+    color: black;
+    margin: 0px;
 }

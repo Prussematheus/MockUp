@@ -79,6 +79,13 @@ $msg = "";
 
     </div>
 
+    <a style="text-decoration: none;" href="editar_perfil.php"> <!--Ainda não fizemos essa página-->
+            <button class="logout">
+                <i class="fas fa-user-edit" style="color:rgb(255, 255, 255);"></i>
+                <p style="color: white;">Editar Perfil</p>
+            </button>
+        </a>
+
     <footer class="fixarRodape"></footer>
 </body>
 </html>

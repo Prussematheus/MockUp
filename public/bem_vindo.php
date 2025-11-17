@@ -65,7 +65,7 @@
 
     </header>
 
-    <div class="espacamento"></div> <!--Apenas um espaçamento com a cor cinza-->
+    <div class="espacamento"></div> 
 
     <div id="bemVindo">
         <h1>Bem vindo Usuário(a)</h1>
@@ -73,7 +73,7 @@
             <i class="fas fa-train fa-5x"></i>
     </div>
     <div class="container">
-    <div class="opcoes"> <!--Lista de botões da página inicial-->
+    <div class="opcoes"> 
         <a style="text-decoration: none;" href="../public/dashboard.php">
             <button class="opcao">
                 <i class="fas fa-chart-line fa-2x" style="color: #004AAD;"></i>
@@ -81,35 +81,41 @@
             </button>
         </a>
 
-        <a style="text-decoration: none;" href="../public/visualizar_relatorios.php"> <!--Ainda não fizemos essa página-->
+        <a style="text-decoration: none;" href="../public/visualizar_relatorios.php"> 
             <button class="opcao">
                 <i class="fas fa-file fa-2x" style="color: #004AAD; margin-left: 10px"></i>
                 <p class="nomeOpcao">Relatórios e Análises</p>
             </button>
         </a>
 
-        <a style="text-decoration: none;" href="../public/cadastro.php"> <!--Ainda não fizemos essa página-->
+        <a style="text-decoration: none;" href="../public/cadastro.php"> 
             <button class="opcao">
                 <i class="fas fa-user-plus fa-2x" style="color: #004AAD;"></i>
                 <p class="nomeOpcao">Cadastrar novo funcionário</p>
             </button>
         </a>
 
-        <a style="text-decoration: none;" href="?logout=1"> <!--Ainda não fizemos essa página-->
+        <a style="text-decoration: none;" href="../public/lista_usuarios.php"> 
+            <button class="opcao">
+                <i class="fas fa-list fa-2x" style="color: #004AAD;"></i>
+                <p class="nomeOpcao">Lista de usuários</p>
+            </button>
+        </a>
+        </div>
+    </div>
+
+        <a style="text-decoration: none;" href="?logout=1"> 
             <button class="logout">
                 <i class="fas fa-sign-out-alt fa-2x" style="color:rgb(255, 255, 255);"></i>
                 <p style="color: white;">Sair</p>
             </button>
-        </a>        
-
-    </div>
-    </div>
-
-    <footer class="fixarRodape">
+        </a> 
 
 
-    </footer>
 
 </body>
+
+<footer class="fixarRodape2">
+</footer>
 
 </php>

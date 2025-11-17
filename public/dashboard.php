@@ -98,36 +98,6 @@
         </div>
     </div>
 
-    <div class="dashboard-container">
-        <?php
-try {
-    $sql_usuarios = "SELECT nome_funcionario, nome_usuario, email_usuario, telefone_usuario FROM usuarios";
-    
-    echo "<h1 class='h1'> Lista de Usuários </h1>";
-    
-    $stmt = $conn->prepare($sql_usuarios);
-    $stmt->execute();
-    
-    $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    
-    foreach ($usuarios as $dado) {
-        echo "<ul class='list-group mb-3'>";
-        echo "<li class='list-group-item'> Nome Funcionário: " . htmlspecialchars($dado['nome_funcionario']) . "</li>";
-        echo "<li class='list-group-item'> Nome Usuário: " . htmlspecialchars($dado['nome_usuario']) . "</li>";
-        echo "<li class='list-group-item'> Email: " . htmlspecialchars($dado['email_usuario']) . "</li>";
-        echo "<li class='list-group-item'> Telefone: " . htmlspecialchars($dado['telefone_usuario']) . "</li>";
-        echo "</ul>";
-    }
-    
-} catch (PDOException $e) {
-    echo "<p class='text-danger'>Erro ao carregar usuários: " . $e->getMessage() . "</p>";
-}
-?>
-    </div>
-
-
-    
-
     <footer class="fixarRodape">
 
     </footer>

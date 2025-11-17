@@ -40,6 +40,24 @@
                 </div>
             </a>
 
+            <a href="../public/cadastro.php" class="menu-item-link"> 
+                <div class="menu-item">
+                    <i class="fas fa-user-plus" style="color: #004aad;"></i>
+                    <div>
+                        <p>Cadastrar novo funcionário</p>
+                    </div>
+                </div>
+            </a>
+
+            <a href="../public/cadastro.php" class="menu-item-link"> 
+                <div class="menu-item">
+                    <i class="fas fa-list" style="color: #004aad;"></i>
+                    <div>
+                        <p>Lista de usuários</p>
+                    </div>
+                </div>
+            </a>
+
             <a href="?logout=1" class="menu-item-link"> 
                 <div class="menu-item">
                     <i class="fas fa-sign-out-alt" style="color: #004aad;"></i>

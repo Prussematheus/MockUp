@@ -872,3 +872,7 @@ button:hover {
     color: black;
     margin: 0px;
 }
+
+#tipo_relatorio{
+    width: 424px;
+}

@@ -154,6 +154,10 @@
             border-radius: 5%;
             height: 30px;
         }
+
+        .relatorio-tipo{
+            margin-right: 5px
+        }
     </style>
 </head>
 
@@ -182,28 +186,39 @@
 
             <div class="relatorios-container">
             <?php if (!empty($relatorios)): ?>
-                <?php foreach($relatorios as $relatorio): ?>
-                    <div class="relatorio-container">
-                        <div class="relatorio-header">
-                            <h3 style="color: black;"><?php echo htmlspecialchars($relatorio['nome_relatorio']); ?></h3>
-                            <span class="relatorio-date">
-                                <?php echo date('d/m/Y H:i', strtotime($relatorio['data_relatorio'])); ?>
-                            </span>
-                        </div>
-                        
-                        <div class="relatorio-content">
-                            <p class="conteudo-relatorio"><?php echo nl2br(htmlspecialchars($relatorio['conteudo_relatorio'])); ?></p>
-                        </div>
-                        
-                        <div class="relatorio-footer">
-                            <span class="relatorio-author">
-                                <i class="fas fa-user"></i>
-                                Autor: <?php echo htmlspecialchars($relatorio['nome_funcionario']); ?>
-                                <?php echo "<button class='delete' onclick=\"if(confirm('Tem certeza?')) window.location.href='deletar_relatorio.php?id=" . $relatorio['id_relatorio'] . "'\">Excluir</button>"; ?>
-                            </span>
-                        </div>
-                    </div>
-                <?php endforeach; ?>
+    <?php foreach($relatorios as $relatorio): ?>
+        <div class="relatorio-container">
+            <div class="relatorio-header">
+                <h3 style="color: black;"><?php echo htmlspecialchars($relatorio['nome_relatorio']); ?></h3>
+                <div style="display: flex; flex-direction: column; align-items: flex-end;">
+                    <span class="relatorio-tipo">
+                        <?php 
+                        if ($relatorio['tipo_relatorio'] == 'bug_sistema') {
+                            echo "<p class 'bug-sistema'>Bug do Sistema</p>";
+                        } else {
+                            echo "<p class 'problema-ferrorama'>Problema no Ferrorama</p>";
+                        }
+                        ?>
+                    </span>
+                    <span class="relatorio-date">
+                        <?php echo date('d/m/Y H:i', strtotime($relatorio['data_relatorio'])); ?>
+                    </span>
+                </div>
+            </div>
+            
+            <div class="relatorio-content">
+                <p class="conteudo-relatorio"><?php echo nl2br(htmlspecialchars($relatorio['conteudo_relatorio'])); ?></p>
+            </div>
+            
+            <div class="relatorio-footer">
+                <span class="relatorio-author">
+                    <i class="fas fa-user"></i>
+                    Autor: <?php echo htmlspecialchars($relatorio['nome_funcionario']); ?>
+                    <?php echo "<button class='delete' onclick=\"if(confirm('Tem certeza?')) window.location.href='deletar_relatorio.php?id=" . $relatorio['id_relatorio'] . "'\">Excluir</button>"; ?>
+                </span>
+            </div>
+        </div>
+    <?php endforeach; ?>
             <?php else: ?>
                 <div class="no-relatorios">
                     <i class="fas fa-file-alt fa-3x"></i>

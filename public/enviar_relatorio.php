@@ -32,22 +32,23 @@
             $nome_relatorio = trim($_POST['nome_relatorio']);
             $conteudo_relatorio = trim($_POST['conteudo_relatorio']);
             $autor_relatorio = $_SESSION['user_id'];
+            $tipo_relatorio = $_POST['tipo_relatorio'];
     
         if (empty($nome_relatorio) || empty($conteudo_relatorio)) {
             $msg = "<div class='error'>Preencha todos os campos!</div>";
         } else {
         try {
-            $sql = "INSERT INTO relatorios (nome_relatorio, conteudo_relatorio, autor_relatorio) 
-                    VALUES (:nome_relatorio, :conteudo_relatorio, :autor_relatorio)";
+            $sql = "INSERT INTO relatorios (nome_relatorio, conteudo_relatorio, tipo_relatorio, autor_relatorio) 
+            VALUES (:nome_relatorio, :conteudo_relatorio, :tipo_relatorio, :autor_relatorio)";
             
             $stmt = $conn->prepare($sql);
             $stmt->bindParam(':nome_relatorio', $nome_relatorio);
             $stmt->bindParam(':conteudo_relatorio', $conteudo_relatorio);
             $stmt->bindParam(':autor_relatorio', $autor_relatorio);
+            $stmt->bindParam(':tipo_relatorio', $tipo_relatorio);
             
             if ($stmt->execute()) {
                 $msg = "<div class='success'>Relatório enviado com sucesso!</div>";
-                // Limpar campos após envio bem-sucedido
                 $nome_relatorio = $conteudo_relatorio = "";
             }
         } catch (PDOException $e) {
@@ -108,6 +109,13 @@
                 <textarea id="conteudo_relatorio" name="conteudo_relatorio" 
                           placeholder="Descreva detalhadamente o relatório..." required><?php echo isset($conteudo_relatorio) ? htmlspecialchars($conteudo_relatorio) : ''; ?></textarea>
             </div>
+            <div class="form-group">
+                <label for="tipo_relatorio">Tipo de Relatório:</label>
+                <select id="tipo_relatorio" name="tipo_relatorio" required>
+                <option value="problema_ferrorama">Problema no Ferrorama</option>
+                <option value="bug_sistema">Bug do Sistema</option>
+                </select>
+            </div>
             
             <div class="form-actions">
                 <button type="button" onclick="window.location.href='visualizar_relatorios.php'" class="btn btn-voltar">
@@ -117,6 +125,7 @@
                     <i class="fas fa-paper-plane"></i> Enviar Relatório
                 </button>
             </div>
+            
         </form>
     </div>
 

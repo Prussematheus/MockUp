@@ -24,6 +24,7 @@ CREATE TABLE relatorios(
   id_relatorio INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
   nome_relatorio VARCHAR(255) NOT NULL,
   conteudo_relatorio TEXT NOT NULL,
+  tipo_relatorio ENUM('bug_sistema', 'problema_ferrorama') NOT NULL DEFAULT 'problema_ferrorama',
   data_relatorio TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   autor_relatorio INT NOT NULL,
   FOREIGN KEY (autor_relatorio) REFERENCES usuarios(id_usuario)

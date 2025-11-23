@@ -120,7 +120,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
 
                 <div class="form-actions">
-                    <a style="text-decoration: none;" href="tela_usuario.php"> <!--Ainda não fizemos essa página-->
+                    <a style="text-decoration: none;" href="tela_usuario.php">
                         <button class="logout" style="margin-bottom: 0px; margin-top:60px; margin-right: 10px; width: 195px">
                             <i class="fas fa-arrow-left" style="color:rgb(255, 255, 255);"></i>
                             <p style="color: white;">Voltar</p>

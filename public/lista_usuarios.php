@@ -108,11 +108,7 @@ try {
             <i class="fas fa-arrow-left" style="color:rgb(255, 255, 255);"></i>
             <p style="color: white;">Voltar</p>
         </button>
-    </a> 
-
-    <footer class="fixarRodape2">
-    </footer>
-        
+    </a>         
 
 </body>
 </html>

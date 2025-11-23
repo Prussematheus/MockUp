@@ -49,7 +49,7 @@
                 </div>
             </a>
 
-            <a href="../public/cadastro.php" class="menu-item-link"> 
+            <a href="../public/lista_usuarios.php" class="menu-item-link"> 
                 <div class="menu-item">
                     <i class="fas fa-list" style="color: #004aad;"></i>
                     <div>

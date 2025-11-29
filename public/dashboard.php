@@ -6,9 +6,11 @@
         include("../includes/conexao.php");
         include("../src/Auth.php");
         include("../src/User.php");
+        include("../src/broker.php");
 
         $auth = new Auth();
         $user = new User($conn);
+        $broker = new Broker($conn);
 
         $currentUser = $user->getUserById($_SESSION['user_id']);
 
@@ -23,6 +25,21 @@
         }
         
         $msg = "";
+
+        $mensagem_vel = $_SESSION['resposta_vel'] ?? '';
+
+        if (!empty($mensagem_vel)) {
+            $ultima = end($mensagem_vel);
+            $broker->saveHist("IoT/trem/velocidade", $ultima['msg'], $ultima['time']);
+            $vel_atual_msg  = $ultima['msg'];
+            $vel_atual_time = $ultima['time'];
+            $vel_atual_date = $ultima['date'];
+        } else {
+            $vel_antigo = $broker->dataVel();
+            $vel_atual_msg  = $vel_antigo['msg_anterior'];
+            $vel_atual_time = $vel_antigo['time_anterior'];
+            $vel_atual_date = $vel_antigo['date_anterior'];
+        }
 
 
     ?>
@@ -65,42 +82,29 @@
         <h1>Dashboard Geral</h1>
     </div>
 
-    <div class="dashboard-container"> <!--Container para centralização-->
-        <div class="dashboard-fundo"> <!--Divs para estilização com cores de fundo e posicionamento-->
-            <div class="dashboard-rota">
-                <p class="rota">Joinville: Sul - Zona Industrial</p> 
-            </div>
-            <div class="dashboard-horario-um">
-                <p>12:30</p>
-            </div>
+    <div class="centralizar">
+        <div class="info-card">
+            <h2 style="text-align: center;">Velocidade do trem:</h2>
+            <?php
+            $displayVel = htmlspecialchars($vel_atual_msg);
+            $displayVelTime = htmlspecialchars($vel_atual_time);
+            $dateObj = new DateTime($vel_atual_date);
+            $displayVelDate = $dateObj->format('d/m/Y');
+            ?>
+            <p><?php echo $displayVel; ?>Km/H</p>
+            <h2 style="text-align: center;">Horário:</h2>
+            <p><?php echo $displayVelTime; ?></p>
+            <h2 style="text-align: center;">Data:</h2>
+            <p><?php echo $displayVelDate; ?></p>
         </div>
     </div>
 
-    <div class="dashboard-container">
-        <div class="dashboard-fundo">
-            <div class="dashboard-rota">
-                <p class="rota">Joinville: Norte - Sul</p>
-            </div>
-            <div class="dashboard-horario-dois">
-                <p>13:00</p>
-            </div>
-        </div>
+    <div class="centralizar">
+        <a href="../src/get_messages.php" class="atualizar-pagina">Atualizar Página</a>
     </div>
 
-    <div class="dashboard-container">
-        <div class="dashboard-fundo">
-            <div class="dashboard-rota">
-                <p class="rota">Joinville: Norte - Zona Leste</p>
-            </div>
-            <div class="dashboard-horario-tres">
-                <p>14:00</p>
-            </div>
-        </div>
-    </div>
-
-    <footer class="fixarRodape">
-
-    </footer>
+    <footer class="fixarRodape"></footer>
+    
 
 </body>
 

@@ -30,36 +30,19 @@ CREATE TABLE relatorios(
   FOREIGN KEY (autor_relatorio) REFERENCES usuarios(id_usuario)
 );
 
-CREATE TABLE sensores(
-  id_sensor INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  tipo_sensor VARCHAR(120) NOT NULL,
-  descricao_sensor VARCHAR(255) NOT NULL,
-  status_sensor VARCHAR(50) NOT NULL
-);
-
-CREATE TABLE sensores_data(
-  id_sensor_data INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  id_sensor INT NOT NULL,
-  valor_sensor FLOAT NOT NULL,
-  data_sensor DATETIME DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (id_sensor) REFERENCES sensores(id_sensor)
+CREATE TABLE historico_sensores(
+id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+topic VARCHAR(45) NOT NULL,
+msg VARCHAR(45) NOT NULL,
+time TIME NOT NULL,
+date DATE DEFAULT (CURDATE())
 );
 
 INSERT INTO usuarios (nome_funcionario, nome_usuario, email_usuario, data_nascimento, senha_usuario, telefone_usuario, cpf_usuario, administrador, cep_usuario, logradouro_usuario, bairro_usuario, cidade_usuario, uf_usuario) VALUES
-('Lucas Kormann', 'LucasK', 'lucasK@gmail.com', '2007/09/23', '$2y$10$MYYCwQ3hyfmhV2ZhLSl1f.OLGaR2J2IOjYfrShvbopa7TBV/VoKPG', '(47) 99919-3898', '131.115.069-24', '1', '89201-266', 'Rua Orestes Guimarães', 'Centro', 'Joinville', 'SC');
+('Lucas Kormann', 'LucasK', 'lucasK@gmail.com', '2007/09/23', '$2y$10$MYYCwQ3hyfmhV2ZhLSl1f.OLGaR2J2IOjYfrShvbopa7TBV/VoKPG', '(47) 99999-9999', '222.222.222-22', '1', '89201-266', 'Rua Orestes Guimarães', 'Centro', 'Joinville', 'SC');
 
-INSERT INTO sensores (tipo_sensor, descricao_sensor, status_sensor) VALUES
-('Temperatura', 'Sensor de temperatura para monitorar a temperatura ambiente', 'Ativo'),
-('Umidade', 'Sensor de umidade para medir a umidade do ar', 'Ativo'),
-('Pressão', 'Sensor de pressão para monitorar a pressão atmosférica', 'Inativo');
-
-INSERT INTO sensores_data (id_sensor, valor_sensor, data_sensor) VALUES
-(1, 22.5, '2024-06-01 10:00:00'),
-(1, 23.0, '2024-06-01 11:00:00'),
-(2, 45.0, '2024-06-01 10:00:00'),
-(2, 50.0, '2024-06-01 11:00:00'),
-(3, 1013.25, '2024-06-01 10:00:00'),
-(3, 1012.80, '2024-06-01 11:00:00');
+INSERT INTO Historico_sensores (topic, msg, time) VALUES
+('IoT/trem/velocidade','50','12:36:42');
 
 INSERT INTO relatorios (nome_relatorio, conteudo_relatorio, autor_relatorio) 
 VALUES ('Relatório de Problema No Trem do Ferrorama', 'Este relatório apresenta um problema ocorrido no sensor do trem (S4), por favor corrigir o mais rápido possível.', 1);

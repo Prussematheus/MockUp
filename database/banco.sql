@@ -39,7 +39,7 @@ date DATE DEFAULT (CURDATE())
 );
 
 INSERT INTO usuarios (nome_funcionario, nome_usuario, email_usuario, data_nascimento, senha_usuario, telefone_usuario, cpf_usuario, administrador, cep_usuario, logradouro_usuario, bairro_usuario, cidade_usuario, uf_usuario) VALUES
-('Lucas Kormann', 'LucasK', 'lucasK@gmail.com', '2007/09/23', '$2y$10$MYYCwQ3hyfmhV2ZhLSl1f.OLGaR2J2IOjYfrShvbopa7TBV/VoKPG', '(47) 99999-9999', '222.222.222-22', '1', '89201-266', 'Rua Orestes Guimarães', 'Centro', 'Joinville', 'SC');
+('admin', 'admin', 'admin@gmail.com', '2007/09/23', '$2y$10$MYYCwQ3hyfmhV2ZhLSl1f.OLGaR2J2IOjYfrShvbopa7TBV/VoKPG', '(47) 99999-9999', '222.222.222-22', '1', '96040-130', 'Rua Lindolfo Malaquias de Borba', 'Fragata', 'Pelotas', 'RS');
 
 INSERT INTO Historico_sensores (topic, msg, time) VALUES
 ('IoT/trem/velocidade','50','12:36:42');

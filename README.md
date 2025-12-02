@@ -9,7 +9,7 @@ O projeto foi pensado para ser modular, escalável e de fácil manutenção, per
 - Clone este repositório fornecido no GitHub
 - Inicie o XAMPP e crie o banco de dados, copiando as tabelas fornecidas
 - Para o login, o banco de dados já vem com um usuário, sendo o admin@gmail.com, e a senha é '12345'
-- Para o funcionamento adequado do sistema, é necessário criar um arquivo dentro da pasta "includes" com o nome "env.h"
+- Para o funcionamento adequado do sistema, é necessário criar um arquivo dentro da pasta "includes" com o nome ".env"
 - Neste arquivo, deve ser colocado as seguintes informações:
 
 MQTT_SERVER=
